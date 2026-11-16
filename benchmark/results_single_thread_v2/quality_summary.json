@@ -1,0 +1,100 @@
+{
+  "texture_h264": {
+    "frames": 60,
+    "view_count": 4,
+    "images_compared": 240,
+    "global_rgb_mse": 0.0008690754281690256,
+    "pooled_psnr_db": 30.609425289414478,
+    "per_view_pooled_psnr_db": {
+      "source": 30.765274502972222,
+      "right": 30.604726559924714,
+      "left": 30.487481738786766,
+      "up": 30.584782301486378
+    },
+    "mean_image_psnr_db": 30.883693460372843
+  },
+  "gsd_v1": {
+    "frames": 60,
+    "view_count": 4,
+    "images_compared": 240,
+    "global_rgb_mse": 4.525524428886454e-09,
+    "pooled_psnr_db": 83.44331086431256,
+    "per_view_pooled_psnr_db": {
+      "source": 83.74956557049104,
+      "right": 83.54392569931123,
+      "left": 83.07739002243225,
+      "up": 83.4299458965072
+    },
+    "mean_image_psnr_db": 83.45864821085944
+  },
+  "gsd_v2": {
+    "frames": 60,
+    "view_count": 4,
+    "images_compared": 240,
+    "global_rgb_mse": 0.0021650502676776795,
+    "pooled_psnr_db": 26.64532015836436,
+    "per_view_pooled_psnr_db": {
+      "source": 26.907006036290934,
+      "right": 26.55253982075488,
+      "left": 26.41013861425116,
+      "up": 26.727580833252077
+    },
+    "mean_image_psnr_db": 26.67166472612683
+  },
+  "tsog": {
+    "frames": 60,
+    "view_count": 4,
+    "images_compared": 240,
+    "global_rgb_mse": 1.262690726219662e-05,
+    "pooled_psnr_db": 48.98703009178642,
+    "per_view_pooled_psnr_db": {
+      "source": 49.05351838838132,
+      "right": 49.027411076032934,
+      "left": 48.910771137166506,
+      "up": 48.95788475908372
+    },
+    "mean_image_psnr_db": 49.05909524420369
+  },
+  "morton_av1": {
+    "frames": 60,
+    "view_count": 4,
+    "images_compared": 240,
+    "global_rgb_mse": 3.0214456690427603e-06,
+    "pooled_psnr_db": 55.19785210731119,
+    "per_view_pooled_psnr_db": {
+      "source": 55.4584161168826,
+      "right": 55.20257406453108,
+      "left": 55.2223367264748,
+      "up": 54.92459530099066
+    },
+    "mean_image_psnr_db": 55.20619394529375
+  },
+  "morton_av1_opt": {
+    "frames": 60,
+    "view_count": 4,
+    "images_compared": 240,
+    "global_rgb_mse": 3.0217817643750157e-06,
+    "pooled_psnr_db": 55.19736903977832,
+    "per_view_pooled_psnr_db": {
+      "source": 55.4583962572169,
+      "right": 55.20241989231039,
+      "left": 55.22255115434491,
+      "up": 54.92274312064434
+    },
+    "mean_image_psnr_db": 55.205702933566684
+  },
+  "smv": {
+    "frames": 60,
+    "view_count": 4,
+    "images_compared": 240,
+    "global_rgb_mse": 3.8227168815845726e-06,
+    "pooled_psnr_db": 54.17627865548497,
+    "per_view_pooled_psnr_db": {
+      "source": 54.255545367304386,
+      "right": 54.333409255406536,
+      "left": 53.96580726979238,
+      "up": 54.15909774369499
+    },
+    "mean_image_psnr_db": 56.886228785584926
+  }
+}

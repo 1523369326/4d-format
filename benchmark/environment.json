@@ -1,0 +1,670 @@
+{
+  "python": "E:\\CloudPointTest\\4dgs-view\\format\\.venv-compression\\Scripts\\python.exe",
+  "python_version": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.22631-SP0",
+  "environment_snapshot_used": "2026-10-19T23:56:52+08:00; selected environment live-verified",
+  "compression_environment": "workspace .venv-compression (Python 3.12), NumPy 2",
+  "renderer_python": "E:\\ProgramData\\Anaconda\\envs\\cu121-3dgs\\python.exe",
+  "renderer": "preinstalled diff_gaussian_rasterization CUDA extension, PyTorch 2.5.1 CUDA 12.1",
+  "packages": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.7.2",
+    "Pillow": "11.3.0",
+    "opencv-python-headless": "4.11.0.86",
+    "plyfile": "1.1.3",
+    "lz4": "4.4.5",
+    "threadpoolctl": "3.6.0"
+  },
+  "projects": {
+    "4DGS-compression": {
+      "path": "E:\\CloudPointTest\\4dgs-view\\format\\third_party\\4DGS-compression",
+      "revision": null,
+      "worktree_status": null,
+      "source_tree_sha256": "10a2f7eebd320d41379b316f32d20e145adaef3695c4f27869c7f233b38a87f3",
+      "source_files": [
+        {
+          "file": "decode_videos_to_ply.ps1",
+          "sha256": "fd171ac0cf1069ed28e77ed7234347533634aa55b29a2a6290242613a8b2e30a"
+        },
+        {
+          "file": "decode_videos_to_ply.py",
+          "sha256": "18d97407b9fe5a8411847dc74987619f38093b4d2f1eafe45e2625d5cb89fbf8"
+        },
+        {
+          "file": "encode_textures_to_h264.bat",
+          "sha256": "e5d89aa9f65adff119ac331e68374d3bb37f40c496e9905172cd785ab2c58491"
+        },
+        {
+          "file": "encode_textures_to_h264.ps1",
+          "sha256": "0318c046c960e2fed35df5e3f32f704d8004515f48dbe2d96df8e6c227872730"
+        },
+        {
+          "file": "ply_decode_cli.py",
+          "sha256": "81fe524dea6377cc5a4a85eda6d77e94476140887a248043cbf674367895306c"
+        },
+        {
+          "file": "ply_encode_cli.py",
+          "sha256": "cd92c5d70c4f855f6cb23161042d2796d41190f798b6f52f1edaf5f0b14bd2b4"
+        },
+        {
+          "file": "ply_loader.py",
+          "sha256": "1dcfcbe60996c3e913a07ff31148ac7094e9cb1b1fc77597a9fbb4bdc6ed89c1"
+        },
+        {
+          "file": "ply_texture_decoder.py",
+          "sha256": "c55a63b737bf31c7911877eb8d1f6bf5c7c7b765a92b1c7d2055f0e5e4ba024e"
+        },
+        {
+          "file": "ply_texture_encoder.py",
+          "sha256": "ca0d8850e6a249fe1c9175ed8332b142cff00ddd9182b64ea13274a5b8e39926"
+        },
+        {
+          "file": "README.md",
+          "sha256": "e3e3794a26a4ba95aacce6003db5e95aa4f228324aaf195a0ec90c46c4a70a93"
+        }
+      ]
+    },
+    "4dgs-converter": {
+      "path": "E:\\CloudPointTest\\4dgs-view\\format\\third_party\\4dgs-converter",
+      "revision": null,
+      "worktree_status": null,
+      "source_tree_sha256": "83a75e195cbc43a79212e8ff4a0109477873fa6052d935aaa510990a33b1dede",
+      "source_files": [
+        {
+          "file": "app/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "file": "app/converter/__init__.py",
+          "sha256": "bd12ac5158d504225cf6e7df9c78165d4ea3d46f2e4523bdb0a082d634a68451"
+        },
+        {
+          "file": "app/converter/__main__.py",
+          "sha256": "7e508c36820080acb754209d2fa2452273631130e283634293f90f7a08ebb33b"
+        },
+        {
+          "file": "app/converter/env_check.py",
+          "sha256": "382b099f723fbb26b693ca29432f81493730a14504dd3b4989fafd0a499e0cc4"
+        },
+        {
+          "file": "app/converter/main_window.py",
+          "sha256": "09ecf2966ddd7a6f215ed971f3bb33824b9854da7fa39668e61a3f42d638af0f"
+        },
+        {
+          "file": "app/converter/worker.py",
+          "sha256": "279dcc82b3747ddec2eade3ea758317761f44a1a08fdd8a3ce845400cb3bf867"
+        },
+        {
+          "file": "app/main.py",
+          "sha256": "fe2fdd1198ca424018e8fe5b518b004674e90e3aecea7e7c346096a6af5136e3"
+        },
+        {
+          "file": "app/pipeline/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "file": "app/pipeline/images_to_ply.py",
+          "sha256": "af4df1cf0c0dc5be5e3a2562f1ba249dfa3ddcad44fad33535480a2faf0000b6"
+        },
+        {
+          "file": "app/pipeline/ply_to_gsd.py",
+          "sha256": "111541c8524452dc2c70b3e78a2538ce4796c38809c7c63bf117c2a242f2b90d"
+        },
+        {
+          "file": "app/pipeline/ply_to_gsd_v2.py",
+          "sha256": "67cf2335daad1140d556684dc3c006239fffe2ea37a9cbe8b87ba54b18d471d4"
+        },
+        {
+          "file": "app/pipeline/ply_to_raw.py",
+          "sha256": "1a50c3990c0a2e806ce01f956cd576dfc9a178418585d1deaf0a36124571d0dc"
+        },
+        {
+          "file": "app/pipeline/raw_to_gsd.py",
+          "sha256": "a2907806edae87a725ae11a100373b693d0751875f737e104593d9078b1fb458"
+        },
+        {
+          "file": "app/pipeline/video_to_images.py",
+          "sha256": "8dadd18700569b832bbb45da7119c810fe9d51992b62ba7c50496705aea46092"
+        },
+        {
+          "file": "app/utils/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "file": "app/utils/morton.py",
+          "sha256": "7400145bde5a781cfbbadaf635bc2642ed13bc3692ca19d0e58d798ad3e2c752"
+        },
+        {
+          "file": "app/utils/ply_reader.py",
+          "sha256": "715280a3bfa44b978c427d65955262fcb3fb41beefac2a08c8c6cfcef5997346"
+        },
+        {
+          "file": "benchmark/encoding_benchmark.py",
+          "sha256": "204fb0f0382246b487e40a7ef66bceb67c1a966818ce6db340c40b40684814c7"
+        },
+        {
+          "file": "benchmark/full_encoding_benchmark.py",
+          "sha256": "f759b3161d0762bea9daee1cf8bf9ee325ef7460e57e46d7375db6f8bab00a38"
+        },
+        {
+          "file": "benchmark/gsd_compression_benchmark.py",
+          "sha256": "6ecd820e4877f138d10708a8ea1780a365f3a597529162876c4804cd4b597291"
+        },
+        {
+          "file": "benchmark/gsd_v2_prototype.py",
+          "sha256": "df3ae5ce972091b6c8daa8e2c71b6b990bdf648267ba7d663eaae3abc9faf9f4"
+        },
+        {
+          "file": "benchmark/ply_deep_analysis.py",
+          "sha256": "d57a9d2157ed83839704042297861825d48466b50d337c8f30684e864005ea86"
+        },
+        {
+          "file": "benchmark/post_deformation_test.py",
+          "sha256": "d7af5290829172cd1830befc08db36ee2f7eba7476e17926175c2876f963481c"
+        },
+        {
+          "file": "benchmark/static_dynamic_separation.py",
+          "sha256": "12d72de17158ad8b79f3de7efad8d6512b834b8b9efa9a9558aad2a22103be35"
+        },
+        {
+          "file": "benchmark/temporal_vq_analysis.py",
+          "sha256": "554021c730e25872c6a85c245878ae47872f31549ae6d02ef9d36101e31b40e1"
+        },
+        {
+          "file": "benchmark/vq_k_benchmark.py",
+          "sha256": "6ba6f96b3e66a3d9a953911af0e01a5b5204a09aeaf7556a185a22d57dbefb60"
+        },
+        {
+          "file": "docs/gsd-v2-renderer-integration.md",
+          "sha256": "4e568a9a60f3c7f9c9715d775a2c9893508462e7508150a4ae34d02a8508cc22"
+        },
+        {
+          "file": "docs/superpowers/plans/2026-03-27-image-sequence-mode.md",
+          "sha256": "c870a1a6b85eca2be5654c15644c7311dc0d3e9992545b0428c469eb91d09b32"
+        },
+        {
+          "file": "docs/superpowers/specs/2026-03-27-image-sequence-mode-design.md",
+          "sha256": "d97e4f84c7919f1706961944cce5544014a96a952583505630ece8ca0f8183a9"
+        },
+        {
+          "file": "README.md",
+          "sha256": "6fc50a07be3f672aaef84e402bc75c88a2272cbbf4f46b4a8778cf3851bf0587"
+        },
+        {
+          "file": "requirements.txt",
+          "sha256": "09cd233b446c6092ad9c124447e57aaaf5685dc80e4d55f9eb96d39730fad71f"
+        }
+      ]
+    },
+    "tsog": {
+      "path": "E:\\CloudPointTest\\4dgs-view\\format\\third_party\\tsog",
+      "revision": null,
+      "worktree_status": null,
+      "source_tree_sha256": "b108c9b4ca3ac86053d5d36a17658ae6ce20ab2bd4b08f9bde14ca916172ea39",
+      "source_files": [
+        {
+          "file": "CHANGELOG.md",
+          "sha256": "b8b9962a3bc4daba73b1a980357579d734e71161a4fe6fdc738de9d591af2e30"
+        },
+        {
+          "file": "CONTRIBUTING.md",
+          "sha256": "7dde27949a98c5399adc080ef1912ba6d2f9f94271f59ec50550154f1d9f755a"
+        },
+        {
+          "file": "docs/ATTRIBUTION.md",
+          "sha256": "f16f7c0f8c488afe080bcec3b2c9b07a2fc0990d7edf85d7250cabc5ea91d0e4"
+        },
+        {
+          "file": "docs/COMPATIBILITY.md",
+          "sha256": "895de46d2fd19993083d4ab9a1aef639f4e0e9546ca436ad00c8094fe698a6cd"
+        },
+        {
+          "file": "docs/IMPLEMENTATION.md",
+          "sha256": "d1e74909a1998c5ebb73daafa4d148832b89e255f529606e48d833c3e3f198e3"
+        },
+        {
+          "file": "docs/PERFORMANCE.md",
+          "sha256": "99746903f5db1d410d9a779db3b3cddb1ed664796bc23488e26ab3fc709e77fa"
+        },
+        {
+          "file": "examples/decode.py",
+          "sha256": "e5404f20505f6babfe4a7773545b972ca65fecd4a909913a2e20374f31a56fe1"
+        },
+        {
+          "file": "examples/encode.py",
+          "sha256": "26f81915dbcb068e40cf13ec82c85313f7ab7a30d4d93524e23595ab8421c82b"
+        },
+        {
+          "file": "examples/README.md",
+          "sha256": "4bde81dad886e0f8b15ec54cb1cff239a4d8bc300b677d56f4c02ddde8877234"
+        },
+        {
+          "file": "examples/slop-example.json",
+          "sha256": "afb5f0ae8f232b4829fd3270f7b9539eba7c005cc58205326e42c725e68d627c"
+        },
+        {
+          "file": "pyproject.toml",
+          "sha256": "69ecf63fd0a6c4c1450ca18ac6400612ba4eed5d066d62ce7123b1d3d9bad6aa"
+        },
+        {
+          "file": "README.md",
+          "sha256": "825335880945905075b0a5482d825b9541aff85249b4bfe9fbd60ff377641920"
+        },
+        {
+          "file": "spec/FORMAT.md",
+          "sha256": "b114a1e7ee2db16c10e79b86dc8997ff41579b2482d685274cb184123164d800"
+        },
+        {
+          "file": "spec/profile.schema.json",
+          "sha256": "fda96b7aa2ade225e006495878d2e4576a7e75d8887189c8b26b3c88bc450268"
+        },
+        {
+          "file": "src/tsog/__init__.py",
+          "sha256": "1a72cf1c9002f2514c8c878465f37dc1426ac50f09dfdad8b79a62648d05e0e4"
+        },
+        {
+          "file": "src/tsog/__main__.py",
+          "sha256": "326d56e32da632026fbbb3fa91529e22ea6b799b9460e3b73b8e551a933cce9d"
+        },
+        {
+          "file": "src/tsog/archive.py",
+          "sha256": "dbb188e57ba404221e97a11abbcdebb08c1f4fcee7167f70c2c0e87e7af40dc5"
+        },
+        {
+          "file": "src/tsog/codec.py",
+          "sha256": "f70ba9375aa6e94b9e354b600b6e7c0e97e3fb0aa8f6d821754ab3909fa7700a"
+        },
+        {
+          "file": "src/tsog/metadata.py",
+          "sha256": "e5557f11d4b2a2ccfcb157a523764b97be61a36acd980fb3242e7fba3a7dac7c"
+        },
+        {
+          "file": "src/tsog/model.py",
+          "sha256": "36d988fc91b4e67971b0e45d8ccb7e4cdfd1fd0bc776170498643be6f55df9be"
+        },
+        {
+          "file": "src/tsog/package.py",
+          "sha256": "8ed6f3c291db636740c5f820334e8dca61bb72f07bd0e22ce7839204995027b6"
+        },
+        {
+          "file": "tests/browser-requirements.txt",
+          "sha256": "9f92390f45edaf8f5fd2cf5e7b4b2369443992f67544d2f3ab4e7441c2d3f6ae"
+        },
+        {
+          "file": "tests/browser_codec.py",
+          "sha256": "c2d0440a43dc39c9e43d456b2ac70fe9e68e6bb4b1edb224d96f522782b527b4"
+        },
+        {
+          "file": "tests/support.py",
+          "sha256": "372627fde4c930382b4525f4f358564e63ba8183f97fe0769793b961ff8ce25a"
+        },
+        {
+          "file": "tests/test_codec.py",
+          "sha256": "4b690c81e907b66fa6469e74349bea7f39c6676e9dcddbe8901a7bf318c2b245"
+        },
+        {
+          "file": "tests/test_core.py",
+          "sha256": "e968d405cf68becd4b809045fe8594eb5a6399618cbc5022ffe6f7d92a21ce1a"
+        },
+        {
+          "file": "tools/benchmark.py",
+          "sha256": "c54523a8d16e4715bc14e7f14190a21624a4182d4f939f258a2a51197c213cf7"
+        },
+        {
+          "file": "tools/create-fixtures.py",
+          "sha256": "bf80d6b45db1a6e2240e8dc15012eb4085aca5274713742984464bc377a0f6e7"
+        },
+        {
+          "file": "tools/update-schema.py",
+          "sha256": "83ed1caffe039a7e7e849be76394a0a26459e7ff548ea7cc91087b3b607c0fe4"
+        },
+        {
+          "file": "web/codec.js",
+          "sha256": "4899f2b7ae7e88e1df53f099af603125706b9a22b31d253c0ac3f75fb0339c8d"
+        },
+        {
+          "file": "web/decode-worker.js",
+          "sha256": "fdaf1476d131f548fc63855360e63ef01ad0014fc09be1b54d1de1e503eab658"
+        },
+        {
+          "file": "web/webp.js",
+          "sha256": "5415462d92e6ad761db8d8fa95ed04370aa270f0779c7b271e4b64f91fbd590e"
+        },
+        {
+          "file": "web/zip.js",
+          "sha256": "59740794a7ae75445ce178630a22ad4bdda131119008736fe7467b001a82fa95"
+        }
+      ]
+    },
+    "smv-codec": {
+      "path": "E:\\CloudPointTest\\4dgs-view\\format\\third_party\\smv-codec",
+      "revision": null,
+      "worktree_status": null,
+      "source_tree_sha256": "be62a8beb4461629b1358cf41d14bcffdf721bd4a651bc1cc8f1a6dd9ac350c8",
+      "source_files": [
+        {
+          "file": "README.md",
+          "sha256": "a88c249b55af8df32da2e9923e00ece70697f0c0f274b809b5831395df53c85e"
+        },
+        {
+          "file": "requirements.txt",
+          "sha256": "436f138b34e477411328b7781e03c80b6138379a857c0b5574aaa280bb8b8bcf"
+        },
+        {
+          "file": "smv_codec.py",
+          "sha256": "f879918dfc17658a1f1044f8c46739f776964b8c28845157c95fcf8df6c0154d"
+        },
+        {
+          "file": "test_roundtrip.py",
+          "sha256": "544dcafb3383d8dc98fa0e4448a674cde5ca71048bfdba5f09c6535cae12c47d"
+        }
+      ],
+      "provenance": "locally authored SMV payload/timeline prototype; relocated by user request, not an upstream checkout"
+    }
+  },
+  "inputs": [
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000000.ply",
+      "bytes": 24480932,
+      "sha256": "309fd71be135f09e4cffa762fcf2bc9d714b0851451e313151be408fd42a1ef4"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000001.ply",
+      "bytes": 24480932,
+      "sha256": "8bf4871858b2eeee9057454a01f0932d4d929d44b9f0140a8940459642d2b811"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000002.ply",
+      "bytes": 24480932,
+      "sha256": "2b7c4708365e026057349cb3a929e1206ebbf67048d03bd655ed2e0be374ce09"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000003.ply",
+      "bytes": 24480932,
+      "sha256": "bd5404b79076ea7bdd363210661f4692b55e1a5b648ab0a207af85f18ff0c577"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000004.ply",
+      "bytes": 24480932,
+      "sha256": "a86dcd4c72a6b94117198f095c72368ea24d2ea08d95443a77f074c964c830d1"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000005.ply",
+      "bytes": 24480932,
+      "sha256": "7bf6e38c8f174adf25d175b38c2e76bc8aef460c9373b66f2637058ed756efcf"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000006.ply",
+      "bytes": 24480932,
+      "sha256": "2b9dc1f0595052c0a8f4c71b4237e489447bc073fd39af96f2af71050a20e48e"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000007.ply",
+      "bytes": 24480932,
+      "sha256": "c2e0e455b9394f16d1da0fd4767bede4de7e70faa0f1599bfa41677086bb45a0"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000008.ply",
+      "bytes": 24480932,
+      "sha256": "d5edb5086d588ee464d1308586ad16b0aa04e62702b7173cdf3e6da1c327f9a6"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000009.ply",
+      "bytes": 24480932,
+      "sha256": "6b59414d2c89ccfd43991f42c3a0aeae3ac989788080719fdcc8689c252fa928"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000010.ply",
+      "bytes": 24480932,
+      "sha256": "f78d1e4b019b75adb76e2ca8db5daa001bf6fab4899da14e40183c94f5ba34b2"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000011.ply",
+      "bytes": 24480932,
+      "sha256": "32926d1d1d540df1931ceaaed289b05b9faa20c66da4f1fc22a4da53df112b35"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000012.ply",
+      "bytes": 24480932,
+      "sha256": "0d299806973b6a53775b53ff804da6e8c445d67925da38496a658ea917557521"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000013.ply",
+      "bytes": 24480932,
+      "sha256": "7981a4c74e2e3d21472c1792171abce5263be01f5189bc8587545b74c77c6bff"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000014.ply",
+      "bytes": 24480932,
+      "sha256": "8be0eb7d9739615d8b6fd699a5217df7d405286761c87361f7389311f7a84608"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000015.ply",
+      "bytes": 24480932,
+      "sha256": "bc5f25a19ccb89a2eb1a3294753764ae399e6be1f44569bc5f0d8af06fbdd106"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000016.ply",
+      "bytes": 24480932,
+      "sha256": "533e3c1f4a4c1284b6a324bf98cdc81f315043487a4703b5cfeea1e98c3293cb"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000017.ply",
+      "bytes": 24480932,
+      "sha256": "291d51cbb06b0176a9932bdb014e958118f06be456e14888d0969d0067e7a1b0"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000018.ply",
+      "bytes": 24480932,
+      "sha256": "d98f726c1aab949a0a9e25109fab98ebe3fea7307642246c069c3e663024f4f4"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000019.ply",
+      "bytes": 24480932,
+      "sha256": "d152cd63c68c645a155b4b7fffeb8d8327b0bc552ec56e39d95154d8e111682d"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000020.ply",
+      "bytes": 24480932,
+      "sha256": "7bae2d76147e638ea00139ec1ccf21664499eeaa5b68be2ddd2fe26399ece6d1"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000021.ply",
+      "bytes": 24480932,
+      "sha256": "c0cd54d81f8d752f1ac74b47b55aa2b107c370ae8f76afa1503990d44c8cb745"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000022.ply",
+      "bytes": 24480932,
+      "sha256": "6e43041152cdc621e44c277a4f0025e739a523d38c132e149676a6087d95b4ef"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000023.ply",
+      "bytes": 24480932,
+      "sha256": "353170a9cc96cb71cba61adc298c8d9ad2d68da609975c9d5ecb6096e2a3bd82"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000024.ply",
+      "bytes": 24480932,
+      "sha256": "42a8fefdbd5e5fcbbc55b8f2c20d94b53d1a3688655be8ff4a61005c7524f7d3"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000025.ply",
+      "bytes": 24480932,
+      "sha256": "0972e2c5c1b5be2b9d8802cb6077d04cffc8e2da01f7fb39d55b617c4fcd7572"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000026.ply",
+      "bytes": 24480932,
+      "sha256": "dc77a9663ab45f1c669c7f7ef58d70984c035ff751cf179d822bab801987a295"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000027.ply",
+      "bytes": 24747532,
+      "sha256": "fe4a3b3a65d7fa31d6c89bff2be85359a0b9b37dc38c670ab4acdc77d1933b9c"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000028.ply",
+      "bytes": 24747532,
+      "sha256": "6a38f1e32e4d96878bbe67330a5d207d4870d5ae0f628303eb3dba261570fe52"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000029.ply",
+      "bytes": 24747532,
+      "sha256": "94acb6c67ca2bac2d5519f575037edb6da252ee39facb1c47d20888508f56fe8"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000030.ply",
+      "bytes": 24747532,
+      "sha256": "8345581f5c5728d85658951f0f453de0188c1a976d1526ea3067b34656bd3c9e"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000031.ply",
+      "bytes": 24747532,
+      "sha256": "68848b2e9660d4f98e173d83a46f2e1c1650ad087e935c079c605e4c1b7b735f"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000032.ply",
+      "bytes": 24747532,
+      "sha256": "61293a9219770788444ac6f8a2a8d53ca732219147cf680b958545d8459ac85f"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000033.ply",
+      "bytes": 24747532,
+      "sha256": "0a5f1a6b2cab209cc6022bfbb59b8a1edda6ce656f7b7dbdd7931174b44b0282"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000034.ply",
+      "bytes": 24747532,
+      "sha256": "a8037e55f706a1bdefaab77efd4de1171e770fae7591b3463e6e401953558a12"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000035.ply",
+      "bytes": 24747532,
+      "sha256": "6227d44d0ba0de8af0dd171a419a4d063435c314fd3475c85d186e73ccbe84c8"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000036.ply",
+      "bytes": 24747532,
+      "sha256": "5e005446421e3ef9d90f6aed4451b0c59b866f28cf6d63d50377c548f03ef5cb"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000037.ply",
+      "bytes": 24747532,
+      "sha256": "215316dc180f1e2b4ee399dbc16ce213678f0d67c043f5f5f05880f09414fa16"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000038.ply",
+      "bytes": 24747532,
+      "sha256": "afc874bac6ea61bc28fa22655a9d79aae3a8f15185389e3a771bce22c3f772f7"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000039.ply",
+      "bytes": 24747532,
+      "sha256": "8c7f2563429dc4c2388497b1c61a743bd34bd80134c8c50a6172cece060dfe71"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000040.ply",
+      "bytes": 24747532,
+      "sha256": "83c945c5c903e27667754f4929dd5f15516540d7b2e4f24a1c8c441b988f191a"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000041.ply",
+      "bytes": 24747532,
+      "sha256": "6c18fd3511bb29976ecd59f647a7b12c740c79ce7cf9571e406e809f47587250"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000042.ply",
+      "bytes": 24747532,
+      "sha256": "a3dc16f9d47c54e60daa7799589a38b65317aae6edb5f3ecdbc1edcdc45ec4d5"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000043.ply",
+      "bytes": 24747532,
+      "sha256": "74c6d736c90490fbfe470d161379b117cfb57b10a7dac1007947ea101a32b6f5"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000044.ply",
+      "bytes": 24747532,
+      "sha256": "f4694d83a111dee1993407d4f35e95f85073befef8bcd6683eb7800aba5f3c17"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000045.ply",
+      "bytes": 24747532,
+      "sha256": "a0a2abb6e55763c66ba56ff994b6224b06ab53f55ae91f55373cea55c9636114"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000046.ply",
+      "bytes": 24747532,
+      "sha256": "4cb74822dc6946a086189b8cfc17cd326be95314be104b02516e1ebf340aaf64"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000047.ply",
+      "bytes": 24747532,
+      "sha256": "91e19150f0c347ca6ac7835534a794ca60a0ffc18e446d1b85e90ec97a18a3ee"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000048.ply",
+      "bytes": 24747532,
+      "sha256": "9e2e8843fcc37725d0680b5451689346adbc424355e46028ced92b3b39891e53"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000049.ply",
+      "bytes": 24747532,
+      "sha256": "67e11a4fd7ed4e63bc9386d05214f5bd77a4bc1a08b8ea29621894321fe20707"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000050.ply",
+      "bytes": 24747532,
+      "sha256": "368865623cf6d5898e20f64f987caa53ac4790416dcb758d52e0926e1bc3229c"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000051.ply",
+      "bytes": 24747532,
+      "sha256": "163087c0efd037bad847746fc0eabdedfe2e8e9703466377769b640ab509ab48"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000052.ply",
+      "bytes": 25481613,
+      "sha256": "bda77e63811456e3b0d75421326e0d004da49c8d3b2b287678b31c7868cf535f"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000053.ply",
+      "bytes": 25481613,
+      "sha256": "2b16e0e6f3a1c5910f2ac7b57d459db7f4ae7747f85a71cc627131a6873a92e1"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000054.ply",
+      "bytes": 25481613,
+      "sha256": "94b063a8a49a52ccad891d74c9356df68b11d1b71358e4f3cba259168a954ba0"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000055.ply",
+      "bytes": 25481613,
+      "sha256": "c62e6248bf911dcba3f6ae83d6d0256d0e0c170cc672b525b0f21f1652032ced"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000056.ply",
+      "bytes": 25481613,
+      "sha256": "4b0d27afce75295054da8c3a100e63526798d66c718c2af54ff64c3ba4e2ab33"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000057.ply",
+      "bytes": 25481613,
+      "sha256": "859e90af0acd6a7dece75c950e104ba270ac6e07ad9691ee6b6a35a961920b02"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000058.ply",
+      "bytes": 25481613,
+      "sha256": "8571738499ef346249c836f3f32e0c7e7d09b8971fd43871787a3e2e5a1f3b77"
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000059.ply",
+      "bytes": 25481613,
+      "sha256": "f5ad004d04237ad2239abb452721cc8bb22bf63d079a99156a9d1f608bda8053"
+    }
+  ],
+  "input_bytes": 1483526368,
+  "dataset_sha256": "9010f52a5238930acdb1617fbfb1038fffec352465f12f9e15cf9f2996c0c0cc"
+}

@@ -1,0 +1,40 @@
+{
+  "method": "morton_av1_opt",
+  "frames": 60,
+  "input_bytes": 1483526368,
+  "python": "E:\\CloudPointTest\\4dgs-view\\format\\.venv-compression\\Scripts\\python.exe",
+  "cpu_math_threads": 1,
+  "compression_hardware": "CPU only",
+  "timing_scope": "end-to-end encode, end-to-end decode to standard binary PLY; excludes renderer, outer process startup and adapter module import; lazy imports inside codec functions are included",
+  "benchmark_repetitions": 1,
+  "cache_policy": "OS page cache not flushed; methods run serially",
+  "dataset_sha256": "9010f52a5238930acdb1617fbfb1038fffec352465f12f9e15cf9f2996c0c0cc",
+  "encode_details": {
+    "sh_degree": 3,
+    "algorithm": "stable GOP Morton; exact SH dictionary; static/immutable once; AV1 dynamic delta byte planes",
+    "threads": 1,
+    "preserves_v1_quantizer": true,
+    "gop_count": 3,
+    "motion_atlas_dimensions": [
+      756,
+      756
+    ],
+    "predictor": "previous",
+    "keyframe_bytes": 3996236,
+    "video_bytes": 12059848,
+    "keyframe_codec": "stored NPZ + single-thread LZMA2, preset6, 32MiB dictionary"
+  },
+  "encode_seconds": 58.49980460014194,
+  "encoded_bytes": 16072162,
+  "compression_ratio": 92.30409499356713,
+  "decode_details": {
+    "frame_count": 60,
+    "all_atlas_checksums_match": true,
+    "all_quantized_attribute_checksums_match": true,
+    "same_16bit_quantizer_as_v1": true
+  },
+  "decode_seconds": 11.107674400089309,
+  "status": "completed",
+  "encode_ms_per_frame": 974.9967433356991,
+  "decode_ms_per_frame": 185.12790666815513
+}

@@ -1,0 +1,44 @@
+{
+  "method": "smv",
+  "frames": 60,
+  "input_bytes": 1483526368,
+  "python": "E:\\CloudPointTest\\4dgs-view\\format\\.venv-compression\\Scripts\\python.exe",
+  "cpu_math_threads": 1,
+  "compression_hardware": "CPU only",
+  "timing_scope": "end-to-end encode, end-to-end decode to standard binary PLY; excludes renderer, outer process startup and adapter module import; lazy imports inside codec functions are included",
+  "benchmark_repetitions": 1,
+  "cache_policy": "OS page cache not flushed; methods run serially",
+  "dataset_sha256": "9010f52a5238930acdb1617fbfb1038fffec352465f12f9e15cf9f2996c0c0cc",
+  "encode_details": {
+    "sh_degree": 3,
+    "threads": 1,
+    "implementation": "local SMV prototype: NPZ + lossless HEVC + explicit GOP timeline",
+    "original_website_direct_playback": false,
+    "native_stats": {
+      "archive": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\results_single_thread_v2\\smv\\encoded\\scene.smv.zip",
+      "input_frames": 60,
+      "input_ply_bytes": 1483526368,
+      "archive_bytes": 23975810,
+      "compression_ratio": 61.87596448253469,
+      "size_reduction_percent": 98.38386357552089,
+      "seconds": 21.280999999959022,
+      "gop_count": 3,
+      "shared_static_count": 13,
+      "static_sh_unique_rows": 1003,
+      "original_website_direct_playback": false,
+      "limitation": "Payloads use the SMV decoder; nonuniform GOP timeline requires manifest.json support."
+    }
+  },
+  "encode_seconds": 21.29728930001147,
+  "encoded_bytes": 23975810,
+  "compression_ratio": 61.87596448253469,
+  "decode_details": {
+    "frame_count": 60,
+    "sh_degree": 3,
+    "threads": 1
+  },
+  "decode_seconds": 5.327161199878901,
+  "status": "completed",
+  "encode_ms_per_frame": 354.95482166685787,
+  "decode_ms_per_frame": 88.78601999798168
+}

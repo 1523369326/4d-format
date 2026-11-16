@@ -1,0 +1,57 @@
+{
+  "purpose": "screening only, not a final 60-frame quality result",
+  "source_frame_indices": [
+    0,
+    1,
+    26,
+    27,
+    28,
+    51,
+    52,
+    53,
+    58,
+    59
+  ],
+  "frames": [
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000000.ply",
+      "timestamp": 0.0
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000001.ply",
+      "timestamp": 0.03333333333333333
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000026.ply",
+      "timestamp": 0.8666666666666667
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000027.ply",
+      "timestamp": 0.9
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000028.ply",
+      "timestamp": 0.9333333333333333
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000051.ply",
+      "timestamp": 1.7
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000052.ply",
+      "timestamp": 1.7333333333333334
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000053.ply",
+      "timestamp": 1.7666666666666666
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000058.ply",
+      "timestamp": 1.9333333333333333
+    },
+    {
+      "file": "E:\\CloudPointTest\\4dgs-view\\format\\dataset\\high_discussion\\frames\\frame_000059.ply",
+      "timestamp": 1.9666666666666666
+    }
+  ]
+}

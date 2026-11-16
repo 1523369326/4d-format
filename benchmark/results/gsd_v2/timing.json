@@ -1,0 +1,35 @@
+{
+  "method": "gsd_v2",
+  "frames": 60,
+  "input_bytes": 1483526368,
+  "python": "E:\\CloudPointTest\\4dgs-view\\format\\.venv-compression\\Scripts\\python.exe",
+  "cpu_math_threads": 4,
+  "timing_scope": "end-to-end encode, end-to-end decode to standard binary PLY; excludes renderer, outer process startup and adapter module import; lazy imports inside codec functions are included",
+  "benchmark_repetitions": 1,
+  "cache_policy": "OS page cache not flushed; methods run serially",
+  "encode_details": {
+    "native_stats": {
+      "frame_count": 60,
+      "total_raw_size": 197838720,
+      "total_compressed_size": 47388169,
+      "file_size": 47400342,
+      "overall_ratio": 0.2395292943666437,
+      "encode_time": 46.677706241607666
+    },
+    "sh_degree": 0,
+    "implementation": "unmodified native conversion API, 2 worker processes",
+    "settings": "v2: VQ256 rotation/scale/DC, FP16 position, no higher SH"
+  },
+  "encode_seconds": 51.65844490006566,
+  "encoded_bytes": 47401579,
+  "compression_ratio": 31.296982068888465,
+  "decode_details": {
+    "frame_count": 60,
+    "sh_degree": 0
+  },
+  "decode_seconds": 2.453314800048247,
+  "status": "completed",
+  "encode_ms_per_frame": 860.974081667761,
+  "decode_ms_per_frame": 40.88858000080412,
+  "dataset_sha256": "9010f52a5238930acdb1617fbfb1038fffec352465f12f9e15cf9f2996c0c0cc"
+}

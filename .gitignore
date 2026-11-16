@@ -1,0 +1,64 @@
+# Local environments and Python/build caches
+.venv*/
+__pycache__/
+*.py[cod]
+*.log
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# Local credentials/editor/system files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Downloaded scenes, papers and third-party page assets stay local
+/dataset/*
+!/dataset/*.py
+!/dataset/LICENSE
+/paper/
+
+# Generated media and binary assets
+*.ply
+*.mkv
+*.mp4
+*.gsd
+*.tsog
+*.npz
+*.npy
+*.xz
+*.whl
+*.exe
+*.pyd
+*.dll
+/output/
+/third_party/smv-codec/output/
+
+# Keep lightweight benchmark reports, not generated frame/video trees
+/benchmark/results*/**/*
+!/benchmark/results*/*/
+!/benchmark/results*/*.md
+!/benchmark/results*/*.csv
+!/benchmark/results*/*.json
+!/benchmark/results*/*/timing.json
+!/benchmark/results*/*/quality.json
+!/benchmark/results*/*/native_encode_report.json
+/benchmark/experiments/
+/benchmark/build/
+/benchmark/av1-entry-*/
+/benchmark/tmp*/
+
+# Immutable local research snapshots and runtime outputs are not distributed
+/benchmark/optimization/baselines/
+/benchmark/optimization/references/
+/benchmark/optimization/runs/
+/benchmark/optimization/provenance/
+/benchmark/optimization/HOLD_*
+/benchmark/optimization/literature/*
+!/benchmark/optimization/literature/index.json

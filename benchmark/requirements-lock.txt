@@ -1,0 +1,19 @@
+attrs==26.1.0
+cloudpickle==3.1.2
+joblib==1.6.0
+jsonschema==4.25.1
+jsonschema-specifications==2025.9.1
+lz4==4.4.5
+numpy==2.2.6
+opencv-python-headless==4.11.0.86
+opsiclear-tsog @ file:///E:/CloudPointTest/4dgs-view/format/benchmark/build/opsiclear_tsog-1.0.0-py3-none-any.whl#sha256=d977cd74851fff7cf87771f0ca1ec6985e0aa7935774ecc28c40d545ec3328c9
+pillow==11.3.0
+plyfile==1.1.3
+referencing==0.37.0
+rpds-py==2026.9.1
+scikit-learn==1.7.2
+scipy==1.15.3
+setuptools==77.0.3
+threadpoolctl==3.6.0
+typing_extensions==4.16.0
+wheel==0.45.1

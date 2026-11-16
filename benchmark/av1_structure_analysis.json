@@ -1,0 +1,48 @@
+{
+  "old_av1_bytes": 367579914,
+  "tsog_bytes": 19587423,
+  "old_av1_psnr_db": 55.19785210731119,
+  "tsog_psnr_db": 48.98703009178642,
+  "source_attributes": 59,
+  "expanded_sh_attributes": 45,
+  "expanded_sh_raw_fraction": 0.7627118644067796,
+  "old_atlas_dimensions": [
+    3852,
+    3210
+  ],
+  "old_raw_atlas_bytes": 741895200,
+  "old_expanded_sh_bytes_per_point": 90,
+  "exact_sh_label_bytes_per_point": 2,
+  "frame0_to_frame1": {
+    "fraction_sorted_slots_with_different_point_identity": 0.6796377156635295,
+    "fraction_changed_codes_independent_morton": 0.5835050594011072,
+    "fraction_changed_codes_fixed_morton": 0.02996936833940821,
+    "immutable_float_values_changed": 0
+  },
+  "gop_keyframe_sh_uniqueness": {
+    "0": {
+      "point_count": 98707,
+      "exact_quantized_sh_vectors": 1870
+    },
+    "27": {
+      "point_count": 99782,
+      "exact_quantized_sh_vectors": 1848
+    },
+    "52": {
+      "point_count": 102742,
+      "exact_quantized_sh_vectors": 1831
+    }
+  },
+  "tsog_encoded_payload_breakdown_bytes": {
+    "position": 8994242,
+    "scale": 1707826,
+    "rotation": 6136446,
+    "dc_alpha": 1648496,
+    "timeline": 3112,
+    "sh_palette": 306608,
+    "sh_labels": 735332,
+    "metadata": 46354
+  },
+  "not_same_rate_distortion_point": true,
+  "optimization_goal": "preserve exact v1 global uint16 quantized attributes; remove structural redundancy before AV1"
+}

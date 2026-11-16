@@ -1,0 +1,28 @@
+{
+  "method": "texture_h264",
+  "frames": 60,
+  "input_bytes": 1483526368,
+  "python": "E:\\CloudPointTest\\4dgs-view\\format\\.venv-compression\\Scripts\\python.exe",
+  "cpu_math_threads": 1,
+  "compression_hardware": "CPU only",
+  "timing_scope": "end-to-end encode, end-to-end decode to standard binary PLY; excludes renderer, outer process startup and adapter module import; lazy imports inside codec functions are included",
+  "benchmark_repetitions": 1,
+  "cache_policy": "OS page cache not flushed; methods run serially",
+  "dataset_sha256": "9010f52a5238930acdb1617fbfb1038fffec352465f12f9e15cf9f2996c0c0cc",
+  "encode_details": {
+    "sh_degree": 3,
+    "implementation": "upstream property groups/quantization/decoder; vectorized fill and uniform atlas adapter",
+    "settings": "xyz uint16 + FFV1; remaining attrs uint8 + H264 CRF18 yuv444p medium"
+  },
+  "encode_seconds": 35.21572360000573,
+  "encoded_bytes": 37323180,
+  "compression_ratio": 39.748123498587205,
+  "decode_details": {
+    "frame_count": 60,
+    "sh_degree": 3
+  },
+  "decode_seconds": 15.363958100089803,
+  "status": "completed",
+  "encode_ms_per_frame": 586.9287266667621,
+  "decode_ms_per_frame": 256.0659683348301
+}

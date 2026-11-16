@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "methods": [
+    {
+      "method": "texture_h264",
+      "frame_count": 60,
+      "images_compared": 240,
+      "encoded_bytes_match": true,
+      "threads": 1
+    },
+    {
+      "method": "gsd_v1",
+      "frame_count": 60,
+      "images_compared": 240,
+      "encoded_bytes_match": true,
+      "threads": 1
+    },
+    {
+      "method": "gsd_v2",
+      "frame_count": 60,
+      "images_compared": 240,
+      "encoded_bytes_match": true,
+      "threads": 1
+    },
+    {
+      "method": "tsog",
+      "frame_count": 60,
+      "images_compared": 240,
+      "encoded_bytes_match": true,
+      "threads": 1
+    },
+    {
+      "method": "morton_av1",
+      "frame_count": 60,
+      "images_compared": 240,
+      "encoded_bytes_match": true,
+      "threads": 1
+    },
+    {
+      "method": "morton_av1_opt",
+      "frame_count": 60,
+      "images_compared": 240,
+      "encoded_bytes_match": true,
+      "threads": 1
+    },
+    {
+      "method": "smv",
+      "frame_count": 60,
+      "images_compared": 240,
+      "encoded_bytes_match": true,
+      "threads": 1
+    }
+  ],
+  "rendered_comparisons": 1680,
+  "tests": {
+    "adapter_tests": 2,
+    "temporal_exact_v1_tests": 2,
+    "smv_roundtrip_tests": 1,
+    "tsog_upstream_tests": 22
+  },
+  "compileall": "passed",
+  "pip_check": "passed",
+  "direct_optimized_playback_frames_tested": 2,
+  "preview_videos_decode": "passed",
+  "smv_relocated": true
+}

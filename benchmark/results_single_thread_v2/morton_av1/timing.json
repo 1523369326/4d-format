@@ -1,0 +1,27 @@
+{
+  "method": "morton_av1",
+  "frames": 60,
+  "input_bytes": 1483526368,
+  "python": "E:\\CloudPointTest\\4dgs-view\\format\\.venv-compression\\Scripts\\python.exe",
+  "cpu_math_threads": 1,
+  "compression_hardware": "CPU only",
+  "timing_scope": "end-to-end encode, end-to-end decode to standard binary PLY; excludes renderer, outer process startup and adapter module import; lazy imports inside codec functions are included",
+  "benchmark_repetitions": 1,
+  "cache_policy": "OS page cache not flushed; methods run serially",
+  "dataset_sha256": "9010f52a5238930acdb1617fbfb1038fffec352465f12f9e15cf9f2996c0c0cc",
+  "encode_details": {
+    "sh_degree": 3,
+    "algorithm": "Morton, global uint16 attributes, gray8 low/high atlas, lossless AV1",
+    "one_video_frame_per_ply": true
+  },
+  "encode_seconds": 471.7361822000239,
+  "encoded_bytes": 368061480,
+  "compression_ratio": 4.030648271044283,
+  "decode_details": {
+    "all_byte_plane_checksums_match": true
+  },
+  "decode_seconds": 55.456618499942124,
+  "status": "completed",
+  "encode_ms_per_frame": 7862.269703333732,
+  "decode_ms_per_frame": 924.2769749990354
+}

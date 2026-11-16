@@ -1,0 +1,14 @@
+{
+  "status": "running",
+  "stage": "latest_reference_and_cached_decode",
+  "date": "2026-11-16",
+  "objective_document": "benchmark/optimization/GOAL.md",
+  "objective_scope": "Paper-informed open-ended AV1 feasibility search across temporal prediction, non-codebook SH methods, layout, precision, codec configuration and implementation; SH deduplication is the first ablation only.",
+  "codec_policy": "single-thread CPU; one inherited logical CPU; AV1 only",
+  "quality_policy": "existing CUDA renderer outside codec timing; 60 frames x 4 views",
+  "historical_results": "benchmark/results",
+  "source_snapshot": "benchmark/optimization/baselines/historical_20261116",
+  "active_suite": "benchmark/optimization/run_stage_latest.ps1",
+  "best_candidate": null,
+  "next": "Verify legacy NPZ/XZ cached decoding, render key paper pages, repeat TSOG and frozen 16.07 MB AV1 reference, then isolate cached decode and v4 layout/prediction changes."
+}

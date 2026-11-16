@@ -1,0 +1,14 @@
+{
+  "archive": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\results_single_thread_v2\\smv\\encoded\\scene.smv.zip",
+  "input_frames": 60,
+  "input_ply_bytes": 1483526368,
+  "archive_bytes": 23975810,
+  "compression_ratio": 61.87596448253469,
+  "size_reduction_percent": 98.38386357552089,
+  "seconds": 21.280999999959022,
+  "gop_count": 3,
+  "shared_static_count": 13,
+  "static_sh_unique_rows": 1003,
+  "original_website_direct_playback": false,
+  "limitation": "Payloads use the SMV decoder; nonuniform GOP timeline requires manifest.json support."
+}

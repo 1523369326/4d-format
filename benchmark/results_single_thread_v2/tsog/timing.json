@@ -1,0 +1,29 @@
+{
+  "method": "tsog",
+  "frames": 60,
+  "input_bytes": 1483526368,
+  "python": "E:\\CloudPointTest\\4dgs-view\\format\\.venv-compression\\Scripts\\python.exe",
+  "cpu_math_threads": 1,
+  "compression_hardware": "CPU only",
+  "timing_scope": "end-to-end encode, end-to-end decode to standard binary PLY; excludes renderer, outer process startup and adapter module import; lazy imports inside codec functions are included",
+  "benchmark_repetitions": 1,
+  "cache_policy": "OS page cache not flushed; methods run serially",
+  "dataset_sha256": "9010f52a5238930acdb1617fbfb1038fffec352465f12f9e15cf9f2996c0c0cc",
+  "encode_details": {
+    "sh_degree": 3,
+    "chunk_size": 10,
+    "implementation": "native TSOG encode; exact unique SH palette, discrete frame IDs",
+    "synchronous_execution": true
+  },
+  "encode_seconds": 65.80193179985508,
+  "encoded_bytes": 19587423,
+  "compression_ratio": 75.73872111711684,
+  "decode_details": {
+    "frame_count": 60,
+    "sh_degree": 3
+  },
+  "decode_seconds": 5.270889199804515,
+  "status": "completed",
+  "encode_ms_per_frame": 1096.6988633309181,
+  "decode_ms_per_frame": 87.84815333007525
+}

@@ -1,0 +1,17 @@
+{
+  "python_compileall": "passed",
+  "tsog_wheel": "build/opsiclear_tsog-1.0.0-py3-none-any.whl",
+  "wheel_built_and_installed": true,
+  "adapter_tests": {
+    "passed": 2,
+    "description": "5 codec real round trips plus vectorized texture equivalence"
+  },
+  "tsog_upstream_tests": {
+    "passed": 22
+  },
+  "direct_av1_cuda_playback": {
+    "headless_frames_tested": 2,
+    "atlas_checksums": "passed",
+    "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU"
+  }
+}

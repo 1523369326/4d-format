@@ -1,0 +1,125 @@
+{
+  "papers": [
+    {
+      "file": "paper\\GSCV++.pdf",
+      "sha256": "1ee84feee42dd4e02d524027a5599bc4a212ed77680d9b7b26e2c0d1da956f35",
+      "pages": 16,
+      "text": "GSCV++.txt",
+      "metadata": {
+        "/Author": "Qi Yang; Yingzhan Xu; Kai Zhang; Li Zhang",
+        "/Creator": "arXiv GenPDF (tex2pdf:07e334b)",
+        "/DOI": "https://doi.org/10.48550/arXiv.2611.05359",
+        "/License": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "/PTEX.Fullbanner": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) kpathsea version 6.4.1",
+        "/Producer": "pikepdf 8.15.1",
+        "/Title": "GSCV++: Lightweight 3D Gaussian Splatting Sequence Compression via Standard Video Codecs",
+        "/Trapped": "/False",
+        "/arXivID": "https://arxiv.org/abs/2611.05359v2"
+      },
+      "page_character_counts": [
+        5295,
+        8552,
+        8347,
+        8012,
+        4462,
+        8598,
+        4600,
+        5126,
+        5337,
+        5233,
+        8357,
+        6999,
+        5294,
+        6790,
+        12456,
+        8766
+      ],
+      "needs_ocr_pages": []
+    },
+    {
+      "file": "paper\\SmoothMotionVectors.pdf",
+      "sha256": "f4c1c4dc694a07c1bc1a33f5975ecd04417f1ffe8d3627d61790b5dc9d2a75da",
+      "pages": 11,
+      "text": "SmoothMotionVectors.txt",
+      "metadata": {
+        "/CreationDate": "D:20260506073508Z",
+        "/Creator": "LaTeX with acmart 2025/05/30 v2.14 Typesetting articles for the Association for Computing Machinery and hyperref 2025-05-20 v7.01m Hypertext links for LaTeX",
+        "/ModDate": "D:20260506073508Z",
+        "/PTEX.Fullbanner": "This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) kpathsea version 6.4.1",
+        "/Producer": "pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) kpathsea version 6.4.1",
+        "/Subject": "-  Computing methodologies  ->  Reconstruction.Image compression.",
+        "/Title": "SmoothMotionVectors: Optimizing Your Content for Video Codecs in Free View Video Compression",
+        "/Trapped": "/False"
+      },
+      "page_character_counts": [
+        5670,
+        8549,
+        8882,
+        4162,
+        8224,
+        9258,
+        8406,
+        15660,
+        6230,
+        3330,
+        3432
+      ],
+      "needs_ocr_pages": []
+    },
+    {
+      "file": "paper\\TETRIS-4DGS.pdf",
+      "sha256": "754bad441853b9c79cc71c5a4c4b465595b1b376621cc644cb2bf426c24ac8c3",
+      "pages": 7,
+      "text": "TETRIS-4DGS.txt",
+      "metadata": {
+        "/Author": "Chengzhen Wu; Kelei Liu; Sicheng Li; Lu Yu; Yiyi Liao",
+        "/Creator": "arXiv GenPDF (tex2pdf:07e334b)",
+        "/DOI": "https://doi.org/10.48550/arXiv.2610.14663",
+        "/License": "http://creativecommons.org/licenses/by/4.0/",
+        "/PTEX.Fullbanner": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) kpathsea version 6.4.1",
+        "/Producer": "pikepdf 8.15.1",
+        "/Title": "TETRIS-4DGS: Efficient Post-Training Compression of 4D Gaussian Splatting",
+        "/Trapped": "/False",
+        "/arXivID": "https://arxiv.org/abs/2610.14663v1"
+      },
+      "page_character_counts": [
+        6345,
+        7846,
+        6537,
+        7623,
+        6255,
+        11505,
+        264
+      ],
+      "needs_ocr_pages": []
+    },
+    {
+      "file": "paper\\TSOG.pdf",
+      "sha256": "fdc8e4aab0c5fe15f1539b0f89c36210414532acd310ba5b8993c3fc7c42c968",
+      "pages": 6,
+      "text": "TSOG.txt",
+      "metadata": {
+        "/Author": "Shady Gmira; Evangelos Alexiou; Emmanouil Potetsianakis; Emmanuel Thomas",
+        "/Creator": "arXiv GenPDF (tex2pdf:8def8d8)",
+        "/DOI": "https://doi.org/10.48550/arXiv.2607.28049",
+        "/License": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "/PTEX.Fullbanner": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) kpathsea version 6.4.1",
+        "/Producer": "pikepdf 8.15.1",
+        "/Title": "TSOG: A Format For Temporally And Spatially Ordered Gaussians",
+        "/Trapped": "/False",
+        "/arXivID": "https://arxiv.org/abs/2607.28049v1"
+      },
+      "page_character_counts": [
+        6209,
+        7356,
+        6271,
+        7268,
+        7546,
+        3392
+      ],
+      "needs_ocr_pages": []
+    }
+  ],
+  "extractor": "pypdf",
+  "source_policy": "Original PDF files unchanged; text is indexed by physical PDF page number"
+}

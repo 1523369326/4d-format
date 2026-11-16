@@ -1,0 +1,11 @@
+{
+  "old_MB": 368.06148,
+  "optimized_MB": 16.072162,
+  "smaller_by_factor": 22.90055812030765,
+  "reduction_percent": 95.63329419856704,
+  "old_psnr_db": 55.19785210731119,
+  "optimized_psnr_db": 55.19736903977832,
+  "psnr_delta_db": -0.0004830675328690859,
+  "all_60_quantized_attribute_tables_match_v1_quantizer": true,
+  "threads": 1
+}
