@@ -1,0 +1,7 @@
+{
+  "all_latest_v2_ply_hashes_identical": true,
+  "same_encoder_source": true,
+  "frame_count": 60,
+  "reference": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\runs\\latest_temporal_reference",
+  "candidate": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\runs\\latest_cached_decode"
+}

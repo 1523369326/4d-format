@@ -1,0 +1,423 @@
+{
+  "status": "passed",
+  "created_utc": "2026-11-16T16:30:12.690704+00:00",
+  "kind": "correctness regression; not a formal performance benchmark",
+  "format": "morton-av1-gop",
+  "version": 5,
+  "preserves_input_row_order": true,
+  "codec_sha256": "528a94a8d2c2577cce5cb8a97b9a1ade4fcfeb7d501e674a96e44778d2ae3e9c",
+  "options": {
+    "predictor": "linear"
+  },
+  "frames": 60,
+  "all_62_columns_v1_quantizer_exact": true,
+  "all_60_ply_files_byte_identical_to_source_order_v2": true,
+  "timestamps_equal": true,
+  "reference": "runs/latest_temporal_reference/rep_01/temporal",
+  "candidate": "runs/source_order_v5_regression",
+  "decode_did_not_read_original_ply": "original PLY reads denied during measured decode; child commands restricted to audited FFmpeg",
+  "codec_policy": {
+    "logical_cpu": 0,
+    "affinity_mask": 1,
+    "numerical_threads": 1,
+    "child_process_audit": [
+      {
+        "pid": 30936,
+        "affinity_mask": 1,
+        "command": [
+          "E:\\CloudPointTest\\4dgs-view\\format\\tools\\ffmpeg-win-x86_64-v9.0.2.exe",
+          "-filter_complex_threads",
+          "1",
+          "-hwaccel",
+          "none",
+          "-v",
+          "error",
+          "-y",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-f",
+          "rawvideo",
+          "-pix_fmt",
+          "gray",
+          "-s:v",
+          "756x756",
+          "-r",
+          "30",
+          "-i",
+          "pipe:0",
+          "-an",
+          "-c:v",
+          "libaom-av1",
+          "-cpu-used",
+          "8",
+          "-crf",
+          "0",
+          "-b:v",
+          "0",
+          "-pix_fmt",
+          "gray",
+          "-row-mt",
+          "0",
+          "-threads",
+          "1",
+          "-g",
+          "30",
+          "-force_key_frames",
+          "0.0,0.9,1.7333333333333334",
+          "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\runs\\source_order_v5_regression\\encoded\\motion.mkv"
+        ]
+      },
+      {
+        "pid": 11760,
+        "affinity_mask": 1,
+        "command": [
+          "E:\\CloudPointTest\\4dgs-view\\format\\tools\\ffmpeg-win-x86_64-v9.0.2.exe",
+          "-filter_complex_threads",
+          "1",
+          "-hwaccel",
+          "none",
+          "-v",
+          "error",
+          "-nostdin",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-i",
+          "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\runs\\source_order_v5_regression\\encoded\\motion.mkv",
+          "-f",
+          "rawvideo",
+          "-pix_fmt",
+          "gray",
+          "-threads",
+          "1",
+          "pipe:1"
+        ]
+      }
+    ],
+    "gpu": false
+  },
+  "preservation_checks": {
+    "historical_results": 583,
+    "frozen_source_files": 112,
+    "input_frames": 60,
+    "all_sha256_unchanged": true
+  },
+  "tests_passed": [
+    "test_gop.py: previous/reference/linear x point-major DEFLATE/planar LZMA; source rows, topology, quaternion sign, static GOP; legacy v4 decoding",
+    "CHECK_LIVE_TEMPORAL=1 test_cached_decode.py: legacy NPZ and XZ match original decoder via unified entry",
+    "verify_equivalence.py --candidate-order source: 60 frames, 62 columns exact"
+  ],
+  "single_run_observation": {
+    "encoded_bytes": 15876890,
+    "encode_seconds": 59.30468269996345,
+    "decode_seconds": 3.821185100125149
+  },
+  "formal_repetitions": 0,
+  "quality_note": "No new CUDA rendering. Exact byte-identical PLY output to the validated v2 reference; prior row-permuted v4 render metrics are historical.",
+  "performance_note": "Version 5 includes permutation size and restoration cost. Three fresh serial repetitions required before a new performance comparison.",
+  "decoded_frames": [
+    {
+      "frame": 0,
+      "count": 98707,
+      "sha256": "837f47001aaa0c7ea697ec94d62d8ccb49074f70d984e8a83b2d12cbf4a09ed7"
+    },
+    {
+      "frame": 1,
+      "count": 98707,
+      "sha256": "2ca91c221f82eeea91e38e8aa7b82f274178a2ad551df4aa2f86f3016add89e5"
+    },
+    {
+      "frame": 2,
+      "count": 98707,
+      "sha256": "37c4d41f46c809b04814d821465d787ae2bc63ac0a3b881e200aa0defde5cbae"
+    },
+    {
+      "frame": 3,
+      "count": 98707,
+      "sha256": "77aa0fb648e6899ff3d0d5a44845ca90cfb8fb0f97204bfd28aa6ef55ba0c9d5"
+    },
+    {
+      "frame": 4,
+      "count": 98707,
+      "sha256": "a71ecd051783bb58280734ecd7cb35801a8a3343b0076759f5c3f2a4d2012d78"
+    },
+    {
+      "frame": 5,
+      "count": 98707,
+      "sha256": "8b17ee4afb22dc4bf1dbf5f0d2fa932f2f849c41175c4f3840aff1afcef82887"
+    },
+    {
+      "frame": 6,
+      "count": 98707,
+      "sha256": "a891e4b595f2e4b1abfd561872c6b981203b91cd8337070c63a552b68c8a6036"
+    },
+    {
+      "frame": 7,
+      "count": 98707,
+      "sha256": "7985d2f72ebe53628f938168e213f7deb117b6b72ea3b4700c60146b33ffd267"
+    },
+    {
+      "frame": 8,
+      "count": 98707,
+      "sha256": "86d66be4fcbabee3f123c2de6e9be636e7486a0de61c4a6e4e0823da493d1158"
+    },
+    {
+      "frame": 9,
+      "count": 98707,
+      "sha256": "47e44b9bb64c79c9d7e61d6918627f3e7c5336fa1c16274ab47325c7388ff17b"
+    },
+    {
+      "frame": 10,
+      "count": 98707,
+      "sha256": "542fa7f1ff31b3c401508257a447d7d9e5eaeb5c64bab3ecfa57ac1e77267f92"
+    },
+    {
+      "frame": 11,
+      "count": 98707,
+      "sha256": "6568972d35fc04f7e605060a53ba3bce1088ef92f82b4bb05cec631f89d4cbfe"
+    },
+    {
+      "frame": 12,
+      "count": 98707,
+      "sha256": "050c4f3ca745e2dd8f0879b47efe79bb8737d59b1d7c766db85df110c5db3f41"
+    },
+    {
+      "frame": 13,
+      "count": 98707,
+      "sha256": "6a0af1c2a8929fe07d8dafeb6120b3c9b5d0186aebe031e489714fb7503db681"
+    },
+    {
+      "frame": 14,
+      "count": 98707,
+      "sha256": "f0879c47093bc11b3f7d71733e3384ff45a15ad67fc33510d7d811ec0c7891a4"
+    },
+    {
+      "frame": 15,
+      "count": 98707,
+      "sha256": "cc58f337be6cf37bfd550519f852a07df4c096f5fb429a11b51e520bf0639b03"
+    },
+    {
+      "frame": 16,
+      "count": 98707,
+      "sha256": "8407efe07e495d3d397a1192fa039e3a2074b3ba0e59a27dc1bd51126a7eb9d0"
+    },
+    {
+      "frame": 17,
+      "count": 98707,
+      "sha256": "351c2f63583f721708bc8757166e98b857f35aa2f510a56441dbe37fc624f440"
+    },
+    {
+      "frame": 18,
+      "count": 98707,
+      "sha256": "b8bfd67ec18d4d041a3a86fd27ef75513b62c6dc3ade01dc7b8689af5e831ec0"
+    },
+    {
+      "frame": 19,
+      "count": 98707,
+      "sha256": "6f5144b687f372ee59d632c765be15eebac202f032418fc9ab82057a1b410694"
+    },
+    {
+      "frame": 20,
+      "count": 98707,
+      "sha256": "a36dac1c623cc71e2888923ee155558252c926b6075254aded9e93ee3d4a2f97"
+    },
+    {
+      "frame": 21,
+      "count": 98707,
+      "sha256": "30f363a16805d172ae44722069455fb380ff88bd5f53ba5482563f00e0744534"
+    },
+    {
+      "frame": 22,
+      "count": 98707,
+      "sha256": "c9981f68958759949c2a279fb31b7255e41d8719d3111912fc7ebc4ddcbab866"
+    },
+    {
+      "frame": 23,
+      "count": 98707,
+      "sha256": "be904aac4ea86bbebb405d96571c617bf281fd8e4e6a6377e8a4c951b66ebe9b"
+    },
+    {
+      "frame": 24,
+      "count": 98707,
+      "sha256": "1ca86a29bf09677ce78cc5bc061ac0ac7523757c809e5243c85b1a3d759506df"
+    },
+    {
+      "frame": 25,
+      "count": 98707,
+      "sha256": "762b184227026f46b0af8c8a69b4b0f65c7f4c17d368e44bf071b45e1bd2a53a"
+    },
+    {
+      "frame": 26,
+      "count": 98707,
+      "sha256": "815bad65e0de87256ce9056d649c3d04c43079623b5cbe63e70d0150f4aa1579"
+    },
+    {
+      "frame": 27,
+      "count": 99782,
+      "sha256": "3130d5a6ec7412ef7c939998bd3d2f7a2819f6105e979bec63df445793e41f47"
+    },
+    {
+      "frame": 28,
+      "count": 99782,
+      "sha256": "b2f2d89eb81be3edc29289582a2cb3e8d2530a776b62e7ec059bf03eee5618af"
+    },
+    {
+      "frame": 29,
+      "count": 99782,
+      "sha256": "461815525edfcdcdc051c8733d02ae0469d3788d069a6544dbaac1bdf3aac1b7"
+    },
+    {
+      "frame": 30,
+      "count": 99782,
+      "sha256": "5fdbc570e10da5280d38b43464bbf6a7c5bea44f89cdc83dd675c75398e0d18b"
+    },
+    {
+      "frame": 31,
+      "count": 99782,
+      "sha256": "f6da30148fb0dc29493e4f2f32e0123bf2c694672d23d1b54ff3d580430c7aec"
+    },
+    {
+      "frame": 32,
+      "count": 99782,
+      "sha256": "653fe933300723c3d6058a3c9ce82febf736ff4609e375d461e55f18170eaa86"
+    },
+    {
+      "frame": 33,
+      "count": 99782,
+      "sha256": "6d7dccf0adf363944fbe19c10c8f9d8e8cd5479b9486d914ec0e879658ef7094"
+    },
+    {
+      "frame": 34,
+      "count": 99782,
+      "sha256": "aa1001fde3ab3d83ebf5fbcb6e0a8c87face818205ee060555e5fc4817412364"
+    },
+    {
+      "frame": 35,
+      "count": 99782,
+      "sha256": "70845d07e3df4d47d5b68ef4dd92537961e9cdb0a85c8257954815f53599fc95"
+    },
+    {
+      "frame": 36,
+      "count": 99782,
+      "sha256": "f92cb4f679f9c3ffe4136cdcd20879d6675a71b403049aba2d1073556609c925"
+    },
+    {
+      "frame": 37,
+      "count": 99782,
+      "sha256": "10c46b8ea02883b9d84b5e3dc985214cff4a82aff2c9afbf9ab9289f24402ede"
+    },
+    {
+      "frame": 38,
+      "count": 99782,
+      "sha256": "ab9d2155f03d2d853dcd3419ed3b95cd1cc33b67bd6c27bb6d923258a349435c"
+    },
+    {
+      "frame": 39,
+      "count": 99782,
+      "sha256": "4585fa57c0e02c975d92209c840cdfa31e4634c3c7357e4ea14708745ddad894"
+    },
+    {
+      "frame": 40,
+      "count": 99782,
+      "sha256": "210c6e860169f0e698d21430e0f3d9e68a90ce59276efae8e094a2234e91ffcb"
+    },
+    {
+      "frame": 41,
+      "count": 99782,
+      "sha256": "aafda776705f10dc71c55ba84f4dce2b6101ba3dcbd18692f43513f101d63e3c"
+    },
+    {
+      "frame": 42,
+      "count": 99782,
+      "sha256": "9796c7c3f7ac4b26a2ba160116ba2a2ec49e152ec7c67369be2750c1ed0e577c"
+    },
+    {
+      "frame": 43,
+      "count": 99782,
+      "sha256": "291207aa45819e2d41ef212e29050740c1d7668ce8d3755c996bb15c26559a33"
+    },
+    {
+      "frame": 44,
+      "count": 99782,
+      "sha256": "68ab1c5c6a2f5a249e5262df3ffbfa39c31a51b8472017c160006623693a54cd"
+    },
+    {
+      "frame": 45,
+      "count": 99782,
+      "sha256": "accd2c5c2a3cf76ae1cf4a3804359307f8a84e799b19fa5cdf06d06afa3f2d11"
+    },
+    {
+      "frame": 46,
+      "count": 99782,
+      "sha256": "dc8e179482f646d9299d0ec48d73fc6ac8ea1b6a7b43e476efb9d3bc369b2c0d"
+    },
+    {
+      "frame": 47,
+      "count": 99782,
+      "sha256": "f79cd4ea9a0f3f279840101f41374e339dce010c16a19414c224deeb6f0cc0e1"
+    },
+    {
+      "frame": 48,
+      "count": 99782,
+      "sha256": "def0395bd4aa632640ced5d8c697966e4284803946b3721ef322956e42ed5e7b"
+    },
+    {
+      "frame": 49,
+      "count": 99782,
+      "sha256": "b205086959eff06913dc541c5118d4359b21d893ffb702d26438893aabc1bea8"
+    },
+    {
+      "frame": 50,
+      "count": 99782,
+      "sha256": "8cd730776d4521bbade7dc6be7eec132fb414b82453525dc6170a369fac5acec"
+    },
+    {
+      "frame": 51,
+      "count": 99782,
+      "sha256": "7ec1e2213db8566068bf7c5848228fd0aebef0565697ffb281af3213d28ab102"
+    },
+    {
+      "frame": 52,
+      "count": 102742,
+      "sha256": "d2d266eb8c99ebaa34dca933f11126390d5ba9044bb21eaf377e17659800fd26"
+    },
+    {
+      "frame": 53,
+      "count": 102742,
+      "sha256": "d21273d103dd960cfde446afe0840120421798eb97def7acda5f4ecfbd26a01c"
+    },
+    {
+      "frame": 54,
+      "count": 102742,
+      "sha256": "2d51ddfe694e05715dba54b3d3e6dc514ca6c5a121df1325d5c6cd41ff6deec0"
+    },
+    {
+      "frame": 55,
+      "count": 102742,
+      "sha256": "9dc23f1df7abad45c5f65394e01cd792f9ba17ff82d32566926e7567e5d18782"
+    },
+    {
+      "frame": 56,
+      "count": 102742,
+      "sha256": "eb45ca7418239b2ac4a05c735011d86f74e1b507fb1977eacbffbdf45bed8a41"
+    },
+    {
+      "frame": 57,
+      "count": 102742,
+      "sha256": "8665ad1d99c1669daeccdf33ba9ce2ba37357308dda4b1f4b84681c931f4f637"
+    },
+    {
+      "frame": 58,
+      "count": 102742,
+      "sha256": "375a736e78a605979bf8890d28905a265803f8375571e374458fd5de7ee0914c"
+    },
+    {
+      "frame": 59,
+      "count": 102742,
+      "sha256": "249d4c0b3fa4accb62a8ee6a81f77a513c5ee7fd3756dbac4053d06afbcae12c"
+    }
+  ]
+}

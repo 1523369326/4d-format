@@ -35,12 +35,16 @@
 - [x] 双方单核 3 次测量及完整质量验收完成。重复 PLY 哈希一致；AV1 55.19785 dB，TSOG 48.98703 dB，均 240 图。AV1 编码/解码中位数 486.8508/64.8998 秒，TSOG 77.9813/6.3397 秒；波动范围见原始 summary.json。
 - [x] 三组新候选正确性测试通过，共 5 项测试方法（含多种预测/布局组合）；不是完整性能结论。
 - [x] 四份 PDF 已逐页解析并记录 SHA-256，无须 OCR；GSCV++ p5、TETRIS p4、SmoothMotionVectors p4、TSOG p3 已目视核对。研究卡片见 literature/RESEARCH_CARDS.md，区分原文、迁移假设和未实施方向。
-- [ ] SH 去重消融和候选完成。
-- [ ] 多方向筛选及最佳组合完成。
+- [x] SH 去重消融和候选完成；已结合用户最新 16.07 MB 参考调整主比较。
+- [x] 本阶段多方向筛选及候选完整验收完成；具体收益与未达标项见 reports/stage_latest，不能由阶段结束推断总体目标达成。
 
 已实现但尚待基线结束后执行的候选：v3 逐帧 SH 精确去重、v4 验证 I/P 与静态反量化缓存、v5 无码本的 SH 可逆颜色/空间预测。不能把“已有代码”记作有效实验。v5 使用固定 10 帧边界样本筛选，仍需同样本 v1 对照；有潜力才升到完整验证。当前 run_stage.ps1 为单次串行实验流水线，等待基线完成后执行，不是定时任务。
 
 用户补充最新参考：16.072162 MB，编码/解码 58.4998/11.1077 秒，55.197369 dB，单次未固定总 CPU 亲和性测量。对应当前 av1_temporal.py 已增加 stored-NPZ + 单线程 LZMA2；与开始快照中 19.927388 MB 版本不同。新参考源码、timing、quality 已保存到 references/latest_1607。当前 SH 消融完成后在套件边界 HOLD_NEW_SUITES 停止旧流水线，改为显式冻结新参考并在同一单核执行器复测三次；不得继续将旧 19.93 MB 版本称为“最新优化版”。v4 增加可切换 LZMA/DEFLATE 侧信息容器，LZMA 分支须补跑正确性测试。下一主要瓶颈为解码重建与内存复制，不再只对原版大小取得改进。
 
 ## 恢复说明
+
+2026-11-17 用户收紧行序约束：新 GOP 格式 version 5 必须保存排列并恢复输入 PLY 原始行号。历史 v4 省略排列的候选与 15.41 MB 等测量保留为历史证据，不能作为当前配置的最佳结果。保序版本先完成全量正确性回归；正式大小/速度结论需要另开目录三次复测。当前仍可使用已验证保序的 v2 缓存解码路径。
 每次启动先读 STATE.json 和 EXPERIMENTS.jsonl，检查活动结果 timing/status 与 suite_state.json。未完成目录不能覆盖，失败须新建后缀目录。复用结果前核验源码、输入、执行策略指纹。best.json 只指向通过门槛的完整候选。
+
+阶段最终证据：reports/stage_latest/comparison.json、preservation_check.json、cached_decoder_equivalence.json、noncodebook_screening.json。研究扩展与未实施方向保留在 literature/RESEARCH_CARDS.md。

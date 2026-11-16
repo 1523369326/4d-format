@@ -1,8 +1,9 @@
-"""v4: exact v1 quantizer, verified I/P groups, SH dictionary and cached static decode.
+"""GOP codec: exact v1 quantizer, SH dictionary, cached decode and source row order.
 
 No input point identity is assumed: a GOP continues only while row-wise immutable
 attributes remain exactly equal. All changing xyz/quaternion rows are transmitted.
-Output rows remain in GOP Morton order; source row IDs are not part of this format.
+New version-5 streams retain the GOP permutation and restore each input frame's
+row order. Version-4 streams remain readable in their historical GOP Morton order.
 """
 from __future__ import annotations
 if __name__ == '__main__':
@@ -103,13 +104,13 @@ def encode(paths,timestamps,folder,ffmpeg,threads=1,predictor='previous',max_gop
     groups,lo,hi=analyze(paths,max_gop)
     phases['read_analyze_ranges_and_gop_correspondence']=time.perf_counter()-start
     side=max(16,math.ceil(math.sqrt(max(int(g['dynamic'].sum()) for g in groups))))
-    config={'format':'morton-av1-gop','version':4,'columns':COLUMNS,'quantization_bits':16,
+    config={'format':'morton-av1-gop','version':5,'columns':COLUMNS,'quantization_bits':16,
             'mins':lo.tolist(),'maxs':hi.tolist(),'timestamps':timestamps,'frame_count':len(paths),
             'tile_side':side,'width':4*side,'height':4*side,'video':'motion.mkv',
             'sidecar':'keyframes.npz.xz' if sidecar_codec=='lzma' else 'keyframes.npz','sidecar_codec':sidecar_codec,
             'predictor':predictor,'max_gop':max_gop,'planar_sidecar':bool(planar_sidecar),
             'motion_code_indices':MOTION,'misc_code_indices':MISC,'gops':[],
-            'output_order':'static Morton then dynamic Morton, fixed within each GOP; source row IDs not restored',
+            'output_order':'original input PLY row order','preserves_input_row_order':True,
             'preserves_v1_quantizer':True,'codec':'libaom-av1','crf':0,'video_lossless':True,'threads':1,
             'atlas_sha256':[],'dynamic_quantized_sha256':[]}
     arrays={}
@@ -127,6 +128,7 @@ def encode(paths,timestamps,folder,ffmpeg,threads=1,predictor='previous',max_gop
         prefix=f'gop_{index}_'
         def store(name,value):
             arrays[prefix+name]=np.ascontiguousarray(value.T if planar_sidecar and value.ndim==2 else value)
+        store('order',order.astype(np.uint32 if len(base)<=np.iinfo(np.uint32).max else np.uint64))
         store('misc',codes[:,MISC])
         store('sh_palette',book)
         store('sh_labels',labels.astype(np.uint16 if len(book)<=65536 else np.uint32))
@@ -189,7 +191,8 @@ def encode(paths,timestamps,folder,ffmpeg,threads=1,predictor='previous',max_gop
     phases['validate_immutable_quantize_dynamic_and_av1']=time.perf_counter()-start
     config['encode_phase_seconds']=phases
     write_json(folder/'manifest.json',config)
-    return {'sh_degree':3,'algorithm':'verified I/P GOP; exact SH dictionary; dynamic AV1 deltas; static decode cache',
+    return {'sh_degree':3,'algorithm':'verified I/P GOP; exact SH dictionary; dynamic AV1 deltas; static decode cache; source row restoration',
+            'format_version':5,'preserves_input_row_order':True,
             'preserves_v1_quantizer':True,'predictor':predictor,'phase_seconds':phases,'gop_count':len(groups),
             'sidecar_bytes':(folder/config['sidecar']).stat().st_size,'sidecar_codec':sidecar_codec,
             'video_bytes':(folder/'motion.mkv').stat().st_size}
@@ -198,7 +201,7 @@ def encode(paths,timestamps,folder,ffmpeg,threads=1,predictor='previous',max_gop
 def iter_tables(folder,ffmpeg,reuse_buffer=False):
     folder=Path(folder)
     config=read_json(folder/'manifest.json')
-    if config.get('format')!='morton-av1-gop' or config.get('version')!=4:
+    if config.get('format')!='morton-av1-gop' or config.get('version') not in [4,5]:
         raise ValueError('Unsupported GOP format/version')
     sidecar=(folder/config['sidecar']).read_bytes()
     if hashlib.sha256(sidecar).hexdigest()!=config['sidecar_sha256']:
@@ -230,6 +233,18 @@ def iter_tables(folder,ffmpeg,reuse_buffer=False):
                 template=np.zeros((len(codes),62),np.float32)
                 template[:,COLUMNS]=dequantize(codes,lo,hi)
                 del codes
+                if config['version']==5:
+                    order=load('order')
+                    if (order.shape!=(info['point_count'],) or not np.issubdtype(order.dtype,np.integer)
+                            or not np.array_equal(np.sort(order),np.arange(info['point_count']))):
+                        raise ValueError('Invalid source-order permutation')
+                    restored=np.empty_like(template)
+                    restored[order]=template
+                    template=restored
+                    dynamic_ids=order[static:]
+                else:
+                    dynamic_ids=np.arange(static,len(template))
+                float_index=np.ix_(dynamic_ids,RAW_MOTION)
                 previous=reference
                 previous2=reference
                 for frame in range(info['start_frame'],info['start_frame']+info['frame_count']):
@@ -243,7 +258,7 @@ def iter_tables(folder,ffmpeg,reuse_buffer=False):
                     if hashlib.sha256(motion.astype('<u2').tobytes()).hexdigest()!=config['dynamic_quantized_sha256'][frame]:
                         raise ValueError(f'Dynamic quantized attribute mismatch: {frame}')
                     # The PLY writer opts into reuse; public iteration owns each frame by default.
-                    template[np.ix_(np.arange(static,len(template)),RAW_MOTION)]=dequantize(motion,lo[MOTION],hi[MOTION])
+                    template[float_index]=dequantize(motion,lo[MOTION],hi[MOTION])
                     previous2,previous=previous,motion
                     yield frame,config['timestamps'][frame],template if reuse_buffer else template.copy()
             if process.stdout.read(1):
@@ -266,8 +281,11 @@ def decode(folder,output,ffmpeg,threads=1):
         save_frame(output,i,table)
         timestamps.append(timestamp)
     save_sequence(output,timestamps)
+    config=read_json(Path(folder)/'manifest.json')
+    restores_rows=config['version']==5
     return {'frame_count':len(timestamps),'all_atlas_checksums_match':True,'all_dynamic_quantized_checksums_match':True,
-            'static_attributes_cached_per_gop':True,'output_order':'GOP static/dynamic Morton'}
+            'static_attributes_cached_per_gop':True,'preserves_input_row_order':restores_rows,
+            'output_order':'original input PLY row order' if restores_rows else 'legacy GOP static/dynamic Morton'}
 
 
 def main():

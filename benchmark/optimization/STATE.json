@@ -1,14 +1,47 @@
 {
-  "status": "running",
-  "stage": "latest_reference_and_cached_decode",
-  "date": "2026-11-16",
+  "status": "source_order_restored_correctness_validated",
+  "stage": "source_order_v5_regression_complete",
+  "date": "2026-11-17",
   "objective_document": "benchmark/optimization/GOAL.md",
   "objective_scope": "Paper-informed open-ended AV1 feasibility search across temporal prediction, non-codebook SH methods, layout, precision, codec configuration and implementation; SH deduplication is the first ablation only.",
   "codec_policy": "single-thread CPU; one inherited logical CPU; AV1 only",
   "quality_policy": "existing CUDA renderer outside codec timing; 60 frames x 4 views",
   "historical_results": "benchmark/results",
   "source_snapshot": "benchmark/optimization/baselines/historical_20261116",
-  "active_suite": "benchmark/optimization/run_stage_latest.ps1",
-  "best_candidate": null,
-  "next": "Verify legacy NPZ/XZ cached decoding, render key paper pages, repeat TSOG and frozen 16.07 MB AV1 reference, then isolate cached decode and v4 layout/prediction changes."
+  "active_suite": null,
+  "best_candidate": {
+    "label": "原 v2 格式缓存解码",
+    "suite": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\runs\\latest_cached_decode",
+    "method": "temporal",
+    "codec_sha256": "5e93968d9c955f720dd1f185e9991ebdead4815fe3bf6238aa4ce03e4364e764",
+    "beats_tsog_medians": false,
+    "options": {
+      "encoder_source": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\references\\latest_1607\\av1_temporal.py"
+    },
+    "source_root": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\baselines\\historical_20261116\\source",
+    "preserves_input_row_order": true,
+    "frozen_candidate": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\runs\\latest_cached_decode\\candidate_source.py",
+    "selection": "Smallest already formally validated source-order candidate; GOP v5 correctness passed but fresh three-run performance validation is pending."
+  },
+  "next": "If continuing performance optimization, measure source-order GOP v5 in a fresh directory with three serial repetitions; preserve old v4 evidence and continue paper-informed family coverage.",
+  "latest_report": "benchmark/optimization/reports/source_order_restore",
+  "historical_preservation_passed": true,
+  "updated_utc": "2026-11-16T16:30:12.690704+00:00",
+  "historical_best_candidate": {
+    "label": "v4 线性预测与缓存",
+    "suite": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\runs\\gop_linear_lzma",
+    "method": "temporal",
+    "codec_sha256": "9e43b958511f2e981bdd6ea3f793136450f3ad15c6c570136cdf146f46a047f0",
+    "beats_tsog_medians": true,
+    "options": {
+      "predictor": "linear"
+    },
+    "source_root": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\baselines\\historical_20261116\\source",
+    "frozen_candidate": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\runs\\gop_linear_lzma\\candidate_source.py",
+    "selection": "smallest fully validated v1-equivalent candidate above TSOG quality gate; report all time tradeoffs"
+  },
+  "requires_input_row_order": true,
+  "historical_best_note": "v4 omitted source-order permutation; retained only as historical evidence, not current eligible best",
+  "historical_report": "benchmark/optimization/reports/stage_latest",
+  "source_order_validation": "benchmark/optimization/reports/source_order_restore/validation.json"
 }

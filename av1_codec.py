@@ -170,64 +170,16 @@ def encode(paths,timestamps,folder,ffmpeg,threads=1,predictor='previous'):
 
 
 def iter_tables(folder,ffmpeg):
-    folder=Path(folder)
-    config=read_json(folder/'manifest.json')
-    if hashlib.sha256((folder/config['sidecar']).read_bytes()).hexdigest()!=config['sidecar_sha256']:
-        raise ValueError('Keyframe sidecar checksum mismatch')
-    command=[str(ffmpeg),'-v','error','-nostdin','-filter_threads','1','-threads','1','-i',str(folder/config['video']),
-        '-f','rawvideo','-pix_fmt','gray','-threads','1','pipe:1']
-    payload=lzma.decompress((folder/config['sidecar']).read_bytes())
-    with tempfile.TemporaryFile() as log, np.load(io.BytesIO(payload),allow_pickle=False) as arrays:
-        process=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=log)
-        try:
-            for info in config['gops']:
-                g=info['gop']
-                p=f'gop_{g}_'
-                order=arrays[p+'order']
-                static=info['static_count']
-                template=np.zeros((info['point_count'],59),dtype=np.uint16)
-                template[:,MISC]=arrays[p+'misc']
-                template[:,6:51]=arrays[p+'sh_palette'][arrays[p+'sh_labels']]
-                template[:static,MOTION]=arrays[p+'static_motion']
-                reference=arrays[p+'motion_reference']
-                previous=reference
-                for i in range(info['start_frame'],info['start_frame']+info['frame_count']):
-                    data=read_exact(process.stdout,config['width']*config['height'])
-                    if hashlib.sha256(data).hexdigest()!=config['atlas_sha256'][i]:
-                        raise ValueError(f'AV1 atlas checksum mismatch: {i}')
-                    atlas=np.frombuffer(data,dtype=np.uint8).reshape(config['height'],config['width'])
-                    residual=unpack(atlas,info['dynamic_count'],config['tile_side'])
-                    pred=previous if config['predictor']=='previous' else reference
-                    motion=unzigzag(residual,pred)
-                    template[static:,MOTION]=motion
-                    previous=motion
-                    codes=np.empty_like(template)
-                    codes[order]=template
-                    if hashlib.sha256(codes.astype('<u2').tobytes()).hexdigest()!=config['quantized_frame_sha256'][i]:
-                        raise ValueError(f'Quantized attribute checksum mismatch: {i}')
-                    yield i,config['timestamps'][i],dequantize(codes,config)
-            if process.stdout.read(1):
-                raise ValueError('Extra video frames')
-            if process.wait()!=0:
-                log.seek(0)
-                raise RuntimeError(log.read().decode(errors='replace'))
-        finally:
-            if process.poll() is None:
-                process.kill()
-                process.wait()
-            process.stdout.close()
+    # Keep the public generator's frame ownership and original source row order.
+    # Both legacy NPZ and current XZ streams retain all byte/attribute checksums.
+    from adapt.av1_cached_decode import iter_tables as cached_tables
+    yield from cached_tables(folder,ffmpeg)
 
 
 def decode(folder,output,ffmpeg,threads=1):
-    if threads!=1:
-        raise ValueError('This optimization experiment requires a single CPU thread')
-    timestamps=[]
-    for i,timestamp,table in iter_tables(folder,ffmpeg):
-        save_frame(output,i,table)
-        timestamps.append(timestamp)
-    save_sequence(output,timestamps)
-    return {'frame_count':len(timestamps),'all_atlas_checksums_match':True,
-            'all_quantized_attribute_checksums_match':True,'same_16bit_quantizer_as_v1':True}
+    from adapt.av1_cached_decode import decode as cached_decode
+    details=cached_decode(folder,output,ffmpeg,threads=threads)
+    return {**details,'same_16bit_quantizer_as_v1':True}
 
 
 def main():

@@ -1,0 +1,23 @@
+{
+  "frames": 10,
+  "repetitions": 1,
+  "full_benchmark": false,
+  "all_decoded_ply_hashes_identical": true,
+  "predictive": {
+    "encoded_bytes": 83900149,
+    "encode_seconds": 75.03790350002237,
+    "decode_seconds": 11.603608600096777
+  },
+  "control": {
+    "encoded_bytes": 79786546,
+    "encode_seconds": 70.68279249989428,
+    "decode_seconds": 10.2627371000126
+  },
+  "ratios": {
+    "encoded_bytes": 1.051557602205264,
+    "encode_seconds": 1.0616148689956555,
+    "decode_seconds": 1.1306543748531306
+  },
+  "interpretation": "Single-run fixed-subset control tests a reversible non-codebook SH transform only; no full-scene rate-distortion or statistically stable speed claim.",
+  "decision": "not promoted; no substantial subset size reduction"
+}

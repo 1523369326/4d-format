@@ -1,0 +1,11 @@
+{
+  "historical_files_checked": 583,
+  "historical_modified": [],
+  "source_files_checked": 112,
+  "frozen_source_modified": [],
+  "input_frames_checked": 60,
+  "input_modified": [],
+  "latest_reference_modified": [],
+  "latest_encoded_manifest_matches_supplied_original": true,
+  "note": "Only files present in the original manifest are compared; other tasks may have added reports. Current live benchmark REPORT was separately updated by another task; the initial report is preserved in the source snapshot."
+}

@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-16",
+  "status": "passed",
+  "codec_policy": "single-thread CPU, one inherited logical CPU, software AV1 only",
+  "quality_policy": "existing CUDA renderer outside all codec timings, 60 frames x 4 views",
+  "formal_repetitions_per_method": 3,
+  "existing_temporal_tests_passed": 2,
+  "additional_format_tests": [
+    "Exact SH dictionary: constants, variable counts, wide indices, sidecar corruption and real AV1 round trip",
+    "GOP: previous/reference/linear prediction, planar/point-major layouts, LZMA/DEFLATE, row shuffle, topology changes and quaternion sign changes",
+    "Non-codebook reversible transforms: overflow bijection and real AV1 transport",
+    "Cached decoder: legacy NPZ and latest XZ match original decoder; canonical entry and compatibility alias tested"
+  ],
+  "cli_bootstrap_checks": ["python -m adapt.av1_gop --help", "python -m adapt.av1_temporal --help"],
+  "git_diff_check": "passed; line-ending conversion notices only",
+  "preservation_evidence": "preservation_check.json",
+  "canonical_integration_evidence": "canonical_entry_integration.json",
+  "candidate_equivalence_evidence": "comparison.json and per-candidate equivalence.json",
+  "noncodebook_control_evidence": "noncodebook_screening.json",
+  "best_candidate": "v4 linear predictor with cached static decoding",
+  "result_scope": "This benchmark scene, first 60 frames, fixed four views, existing OpsiClear TSOG implementation"
+}

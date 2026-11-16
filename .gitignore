@@ -62,3 +62,4 @@ Thumbs.db
 /benchmark/optimization/HOLD_*
 /benchmark/optimization/literature/*
 !/benchmark/optimization/literature/index.json
+!/benchmark/optimization/literature/RESEARCH_CARDS.md

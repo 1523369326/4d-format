@@ -4,6 +4,7 @@ from datetime import datetime,timezone
 import json
 from pathlib import Path
 import statistics
+import sys
 
 
 def read(path):
@@ -32,16 +33,22 @@ def summarize(suite,method):
     return {**row,'suite':str(suite.resolve()),'psnr_db':quality['pooled_psnr_db'],
             'per_view_psnr_db':quality['per_view_pooled_psnr_db'],'quality_images':quality['images_compared'],
             'logical_cpu':reports[0]['logical_cpu'],'codec_sha256':reports[0]['codec_sha256'],
-            'encode_details':reports[0]['encode_details'],'equivalence':None}
+            'encode_details':reports[0]['encode_details'],'options':reports[0]['options'],
+            'source_root':reports[0]['source_root'],'equivalence':None}
 
 
 def main():
+    if hasattr(sys.stdout,'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8')
     p=argparse.ArgumentParser()
     p.add_argument('--baseline',type=Path,required=True)
     p.add_argument('--tsog-baseline',type=Path,help='Optional newer isolated TSOG repetitions under the same CPU policy')
-    p.add_argument('--candidate',type=Path,action='append',default=[],help='SUITE;METHOD;LABEL')
+    p.add_argument('--candidate',action='append',default=[],help='SUITE;METHOD;LABEL')
     p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--skip-finalize',action='store_true',help='Regenerate report formatting only, reusing existing verification evidence')
     args=p.parse_args()
+    if args.output.name=='stage_latest' and (args.output/'comparison.json').exists():
+        p.error('stage_latest is frozen historical evidence; choose a fresh output directory')
     baseline=summarize(args.baseline,'morton_av1')
     baseline['label']='AV1 v1 单 CPU 基线'
     tsog=summarize(args.tsog_baseline or args.baseline,'tsog')
@@ -93,14 +100,27 @@ def main():
             '- 文件大小包含视频及全部解码必需 sidecar/manifest；编码包含统计、排序、量化、码本、读写；解码包含标准 PLY 写盘。',
             '- 每个方法质量在 rep_01 测量，其他重复结果须逐帧 PLY SHA-256 相同才可复用质量结论。',
             '- 单场景实测不代表其他场景。三次 min/max 不是统计置信区间；机器温度与其他负载影响需结合日志解释。','']
+    screening_path=args.output/'noncodebook_screening.json'
+    if screening_path.exists():
+        screen=read(screening_path)
+        delta=(screen['ratios']['encoded_bytes']-1)*100
+        lines+=['## 其他方向与退出依据','',
+                f'- 独立无码本 SH 颜色可逆预测：同一固定 10 帧、全部点数的对照中，体积变化 {delta:+.2f}%，解码 PLY 逐帧 SHA 一致；该变体未晋升。一次筛选不支持稳定速度结论，也不能据此否定 PCA 或其他 SH 方法。',
+                '- 单独 SH 精确去重虽保持 v1 属性，但仍为 114.07 MB，落后于当前时序参考；后续优先研究剩余瓶颈。',
+                '- 四篇本地 PDF 的索引、视觉核对与迁移假设见 ../../literature/RESEARCH_CARDS.md；未实施的方法明确保留为后续方向。','']
     (args.output/'REPORT.md').write_text('\n'.join(lines),encoding='utf-8')
-    eligible=[r for r in rows[2:] if r['quality_pass_vs_tsog'] and r['equivalence'] and r['equivalence']['status']=='passed']
+    eligible=[r for r in rows[2:] if r['quality_pass_vs_tsog'] and r['equivalence'] and r['equivalence']['status']=='passed' and r['equivalence'].get('candidate_order')=='source']
     if eligible:
         best=min(eligible,key=lambda row:row['encoded_bytes']['median'])
         (args.output/'best.json').write_text(json.dumps({'label':best['label'],'suite':best['suite'],'method':best['method'],
             'codec_sha256':best['codec_sha256'],'beats_tsog_medians':best['beats_tsog_medians'],
+            'options':best['options'],'source_root':best['source_root'],
+            'frozen_candidate':str(Path(best['suite'])/'candidate_source.py'),
             'selection':'smallest fully validated v1-equivalent candidate above TSOG quality gate; report all time tradeoffs'},indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
-    print('\n'.join(lines[:12]),flush=True)
+    print('\n'.join(lines[:6+len(rows)]),flush=True)
+    if args.output.name=='stage_latest' and not args.skip_finalize:
+        from finalize import finalize
+        finalize(args.output)
 
 
 if __name__=='__main__':

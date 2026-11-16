@@ -4,6 +4,7 @@ configure_environment()
 _,mask=pin_cpu()
 audit_ffmpeg(mask,[])
 from pathlib import Path
+import os
 import sys
 import tempfile
 import unittest
@@ -40,6 +41,19 @@ class CachedDecodeTests(unittest.TestCase):
                 for (frame,timestamp,table),(other,other_time,reference) in zip(actual,expected):
                     self.assertEqual((frame,timestamp),(other,other_time))
                     np.testing.assert_array_equal(table,reference)
+                if os.environ.get('CHECK_LIVE_TEMPORAL')=='1':
+                    import av1_codec as live
+                    from adapt import av1_temporal as compatibility
+                    self.assertIs(compatibility,live)
+                    public=list(live.iter_tables(encoded,ffmpeg))
+                    for (_,_,table),(_,_,reference) in zip(public,expected):
+                        np.testing.assert_array_equal(table,reference)
+                    output=temp/f'live_decoded_{i}'
+                    details=live.decode(encoded,output,ffmpeg,threads=1)
+                    self.assertTrue(details['same_16bit_quantizer_as_v1'])
+                    self.assertTrue(details['supports_npz_and_xz_sidecars'])
+                    for frame,_,reference in expected:
+                        np.testing.assert_array_equal(read_ply(output/f'frame_{frame:06d}.ply'),reference)
 
 
 if __name__=='__main__':

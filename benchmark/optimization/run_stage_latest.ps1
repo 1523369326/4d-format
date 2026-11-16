@@ -35,7 +35,8 @@ try {
     if (-not (Test-Path -LiteralPath (Join-Path $referencePath 'encoded'))) {
         Copy-Item -LiteralPath (Join-Path $workspacePath 'benchmark\results_single_thread_v2\morton_av1_opt\encoded') -Destination (Join-Path $referencePath 'encoded') -Recurse
     }
-    $referenceFiles = Get-ChildItem -LiteralPath $referencePath -Recurse -File | Where-Object { $_.Name -ne 'manifest.json' }
+    $rootReferenceManifest = Join-Path $referencePath 'manifest.json'
+    $referenceFiles = Get-ChildItem -LiteralPath $referencePath -Recurse -File | Where-Object { $_.FullName -ne $rootReferenceManifest }
     $referenceManifest = foreach ($referenceFile in $referenceFiles) {
         [pscustomobject]@{ path=[System.IO.Path]::GetRelativePath($referencePath,$referenceFile.FullName); bytes=$referenceFile.Length; sha256=(Get-FileHash -LiteralPath $referenceFile.FullName -Algorithm SHA256).Hash.ToLowerInvariant() }
     }
@@ -56,16 +57,16 @@ try {
     $encoderOptions = @{ encoder_source=$referenceSource } | ConvertTo-Json -Compress
     Measure-Candidate -Output $cachedPath -Method 'temporal' -Candidate (Join-Path $workspacePath 'adapt\av1_cached_decode.py') -Options $encoderOptions
     Verify-And-Render -Suite $cachedPath -Method 'temporal' -Order 'source'
-    $gopPath = Join-Path $PSScriptRoot 'runs\gop_cached_lzma'
+    $gopPath = Join-Path $PSScriptRoot 'runs\gop_cached_lzma_source_order'
     Measure-Candidate -Output $gopPath -Method 'temporal' -Candidate (Join-Path $workspacePath 'adapt\av1_gop.py')
-    Verify-And-Render -Suite $gopPath -Method 'temporal' -Order 'gop'
+    Verify-And-Render -Suite $gopPath -Method 'temporal' -Order 'source'
     $screenPath = Join-Path $PSScriptRoot 'screen_sequence.json'
     Measure-Candidate -Output (Join-Path $PSScriptRoot 'runs\noncodebook_sh_color_screen') -Method 'predictive' -Candidate (Join-Path $workspacePath 'adapt\av1_predictive.py') -Options '{"prediction":"sh_color"}' -Repetitions 1 -Sequence $screenPath
     Measure-Candidate -Output (Join-Path $PSScriptRoot 'runs\noncodebook_v1_control_screen') -Method 'morton_av1' -Repetitions 1 -Sequence $screenPath
-    $linearPath = Join-Path $PSScriptRoot 'runs\gop_linear_lzma'
+    $linearPath = Join-Path $PSScriptRoot 'runs\gop_linear_lzma_source_order'
     Measure-Candidate -Output $linearPath -Method 'temporal' -Candidate (Join-Path $workspacePath 'adapt\av1_gop.py') -Options '{"predictor":"linear"}'
-    Verify-And-Render -Suite $linearPath -Method 'temporal' -Order 'gop'
-    Invoke-Checked -Executable $codecPython -Arguments @((Join-Path $PSScriptRoot 'report.py'),'--baseline',$baselinePath,'--tsog-baseline',$tsogPath,'--candidate',($dictionaryPath+';shdict;SH 精确去重消融'),'--candidate',($latestPath+';temporal;16.07MB 最新参考复测'),'--candidate',($cachedPath+';temporal;原 v2 格式缓存解码'),'--candidate',($gopPath+';temporal;v4 I/P 与静态解码缓存'),'--candidate',($linearPath+';temporal;v4 线性预测与缓存'),'--output',(Join-Path $PSScriptRoot 'reports\stage_latest'))
+    Verify-And-Render -Suite $linearPath -Method 'temporal' -Order 'source'
+    Invoke-Checked -Executable $codecPython -Arguments @((Join-Path $PSScriptRoot 'report.py'),'--baseline',$baselinePath,'--tsog-baseline',$tsogPath,'--candidate',($dictionaryPath+';shdict;SH 精确去重消融'),'--candidate',($latestPath+';temporal;16.07MB 最新参考复测'),'--candidate',($cachedPath+';temporal;原 v2 格式缓存解码'),'--candidate',($gopPath+';temporal;GOP v5 保序与静态解码缓存'),'--candidate',($linearPath+';temporal;GOP v5 保序线性预测与缓存'),'--output',(Join-Path $PSScriptRoot 'reports\stage_source_order'))
     Write-Output 'Latest-reference stage finished; inspect report, screening, source preservation and next evidence before ending the goal.'
 } finally {
     Pop-Location

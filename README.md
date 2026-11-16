@@ -5,6 +5,7 @@ AV1 4DGS 序列压缩与编解码基准。
 主实现为根目录的 [`av1_codec.py`](av1_codec.py)。它包含已讨论的 GOP 固定 Morton 顺序、精确 SH 码本、
 静态/不变属性复用、动态 uint16 差分、字节平面 AV1 编码及逆向解码。
 完整资产为 `motion.mkv`、`keyframes.npz.xz`、`manifest.json`，格式保持 `morton-av1-temporal` version 2。
+v2 解码按 GOP 缓存静态浮点属性，只更新动态运动分量；视频及逐帧完整量化属性校验仍保留，并兼容早期 NPZ 侧信息。
 
 ## 运行环境
 
@@ -59,6 +60,10 @@ FFmpeg 子进程继承相同亲和性并核验，视频编码仅用软件 AV1。
 播放器使用 CUDA 渲染；编码和解码不使用 GPU。按 1～4 切换相机、空格暂停、Esc 退出。
 benchmark 的 `morton_av1_opt` 也直接加载根目录实现。
 
-这次变更只整理主代码位置和运行入口，未修改量化、码流、GOP 或重建公式。
+统一入口的 v2 编码器保留原量化、码流、GOP 和重建公式，解码已接入静态属性缓存。
+进一步的 v4 布局和线性预测作为独立 AV1 格式路径提供，使用说明见
+[`benchmark/optimization/PROFILES.md`](benchmark/optimization/PROFILES.md)，完整实测见
+[`benchmark/optimization/reports/stage_latest/REPORT.md`](benchmark/optimization/reports/stage_latest/REPORT.md)。
+当前新 GOP 码流已改为格式 version 5，保存排列并恢复输入 PLY 的原始行序；上述 v4 性能表是历史省略排列配置的结果。简短流程与输出说明见 [`benchmark/optimization/MEETING_NOTES.md`](benchmark/optimization/MEETING_NOTES.md)。
 历史 `benchmark/results`、REPORT、environment、input 及优化快照保持原样。
 持续研究的三次单 CPU 正式验收状态以 `benchmark/optimization/STATE.json` 和实验日志为准。

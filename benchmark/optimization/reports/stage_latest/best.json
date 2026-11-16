@@ -1,0 +1,13 @@
+{
+  "label": "v4 线性预测与缓存",
+  "suite": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\runs\\gop_linear_lzma",
+  "method": "temporal",
+  "codec_sha256": "9e43b958511f2e981bdd6ea3f793136450f3ad15c6c570136cdf146f46a047f0",
+  "beats_tsog_medians": true,
+  "options": {
+    "predictor": "linear"
+  },
+  "source_root": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\baselines\\historical_20261116\\source",
+  "frozen_candidate": "E:\\CloudPointTest\\4dgs-view\\format\\benchmark\\optimization\\runs\\gop_linear_lzma\\candidate_source.py",
+  "selection": "smallest fully validated v1-equivalent candidate above TSOG quality gate; report all time tradeoffs"
+}

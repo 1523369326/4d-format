@@ -40,12 +40,12 @@ try {
     Invoke-Checked -Executable $codecPython -Arguments @((Join-Path $PSScriptRoot 'run_exploration_suite.py'),'--source',$sourcePath,'--output',$temporalPath,'--methods','temporal','--repetitions','3')
     Invoke-Checked -Executable $codecPython -Arguments @((Join-Path $PSScriptRoot 'verify_equivalence.py'),'--baseline',(Join-Path $baselinePath 'rep_01\morton_av1'),'--candidate',(Join-Path $temporalPath 'rep_01\temporal'),'--candidate-order','source')
     Invoke-Checked -Executable $renderPython -Arguments @((Join-Path $PSScriptRoot 'evaluate.py'),'--source',$sourcePath,'--results',(Join-Path $temporalPath 'rep_01'),'--methods','temporal')
-    $gopPath = Join-Path $PSScriptRoot 'runs\gop_cached'
+    $gopPath = Join-Path $PSScriptRoot 'runs\gop_cached_source_order'
     Invoke-Checked -Executable $codecPython -Arguments @((Join-Path $PSScriptRoot 'run_exploration_suite.py'),'--source',$sourcePath,'--output',$gopPath,'--methods','temporal','--candidate',(Join-Path $workspacePath 'adapt\av1_gop.py'),'--repetitions','3')
-    Invoke-Checked -Executable $codecPython -Arguments @((Join-Path $PSScriptRoot 'verify_equivalence.py'),'--baseline',(Join-Path $baselinePath 'rep_01\morton_av1'),'--candidate',(Join-Path $gopPath 'rep_01\temporal'),'--candidate-order','gop')
+    Invoke-Checked -Executable $codecPython -Arguments @((Join-Path $PSScriptRoot 'verify_equivalence.py'),'--baseline',(Join-Path $baselinePath 'rep_01\morton_av1'),'--candidate',(Join-Path $gopPath 'rep_01\temporal'),'--candidate-order','source')
     Invoke-Checked -Executable $renderPython -Arguments @((Join-Path $PSScriptRoot 'evaluate.py'),'--source',$sourcePath,'--results',(Join-Path $gopPath 'rep_01'),'--methods','temporal')
     Invoke-Checked -Executable $codecPython -Arguments @((Join-Path $PSScriptRoot 'run_exploration_suite.py'),'--source',$sourcePath,'--output',(Join-Path $PSScriptRoot 'runs\noncodebook_sh_color_screen'),'--methods','predictive','--candidate',(Join-Path $workspacePath 'adapt\av1_predictive.py'),'--sequence',(Join-Path $PSScriptRoot 'screen_sequence.json'),'--options','{"prediction":"sh_color"}','--repetitions','1')
-    Invoke-Checked -Executable $codecPython -Arguments @((Join-Path $PSScriptRoot 'report.py'),'--baseline',$baselinePath,'--candidate',($dictionaryPath+';shdict;SH 精确去重消融'),'--candidate',($temporalPath+';temporal;已有 I/P 时序候选'),'--candidate',($gopPath+';temporal;I/P 与静态解码缓存'),'--output',(Join-Path $PSScriptRoot 'reports\stage_01'))
+    Invoke-Checked -Executable $codecPython -Arguments @((Join-Path $PSScriptRoot 'report.py'),'--baseline',$baselinePath,'--candidate',($dictionaryPath+';shdict;SH 精确去重消融'),'--candidate',($temporalPath+';temporal;已有 I/P 时序候选'),'--candidate',($gopPath+';temporal;I/P 与静态解码缓存（保序）'),'--output',(Join-Path $PSScriptRoot 'reports\stage_01_source_order'))
     Write-Output 'Stage measurements and reports completed. Review evidence, literature and next hypotheses; this is not the end of the expanded goal.'
 } finally {
     Pop-Location

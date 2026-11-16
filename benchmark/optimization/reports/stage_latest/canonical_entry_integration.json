@@ -1,0 +1,10 @@
+{
+  "entry": "E:\\CloudPointTest\\4dgs-view\\format\\av1_codec.py",
+  "before_sha256": "066f0a6e7300c95d77c893f59e9de6ff12e098f48c1f79bdd3c28f8c57f3394c",
+  "after_sha256": "45f8e313d132a3063acc185fc94e83edfa79c972f78ff466f43608f9a4e5b93e",
+  "encoder_semantically_unchanged": true,
+  "cli_semantically_unchanged": true,
+  "compatibility_tests_passed": true,
+  "test_stdout": "Optimized AV1 GOP 1/2: 369 static, 17 dynamic, 276 exact SH vectors\nOptimized AV1 GOP 2/2: 383 static, 0 dynamic, 275 exact SH vectors\nOptimized AV1 GOP 1/2: 369 static, 17 dynamic, 276 exact SH vectors\nOptimized AV1 GOP 2/2: 383 static, 0 dynamic, 275 exact SH vectors\n",
+  "test_stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.767s\n\nOK\n"
+}
